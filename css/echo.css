@@ -19,28 +19,21 @@
 
 .echo-slide-and-fade-enter.echo-slide-and-fade-enter-active {
     opacity: 0 !important;
-    /**
-     * TODO(charlie): This should be 1/3 of the button height, rather than a
-     * fixed 25px..
-     */
-    transform: translateY(-25px) !important;
+    transform: translateY(-33%) !important;
     /**
      * TODO(charlie): These times are intentionally different, which means that
-     * the animation really "ends" after 400ms (since the opacity goes to 0),
-     * even though the transform doesn't complete. There's probably a way to
-     * achieve the same effect by manipulating the transform's Bezier curve and
-     * total displacement.
+     * the animation really "ends" after 400ms cubic-bezier(1, 0, 0.9, 1) (since
+     * the opacity goes to 0), even though the transform doesn't complete.
+     * There's probably a way to achieve the same effect by manipulating the
+     * transform's Bezier curve and total displacement.
      */
-    transition: -webkit-transform 800ms,-moz-transform 800ms,-ms-transform 800ms,transform 800ms, opacity 400ms !important;
-    -webkit-transform: translateY(-25px) !important;
-    -moz-transform: translateY(-25px) !important;
-    -ms-transform: translateY(-25px) !important;
-    -webkit-transition: -webkit-transform 800ms,transform 800ms, opacity 400ms !important;
-    -moz-transition: -moz-transform 800ms,transform 800ms, opacity 400ms !important;
-    -ms-transition: -ms-transform 800ms,transform 800ms, opacity 400ms !important;
-    transition-timing-function: cubic-bezier(0, 1, 0.25, 1), cubic-bezier(0, 1, 0.25, 1), cubic-bezier(1, 0, 0.9, 1);
-    -webkit-transition-timing-function: cubic-bezier(0, 1, 0.25, 1), cubic-bezier(0, 1, 0.25, 1), cubic-bezier(1, 0, 0.9, 1);
-    -moz-transition-timing-function: cubic-bezier(0, 1, 0.25, 1), cubic-bezier(0, 1, 0.25, 1), cubic-bezier(1, 0, 0.9, 1);
+    transition: -webkit-transform 800ms cubic-bezier(0, 1, 0.25, 1),-moz-transform 800ms cubic-bezier(0, 1, 0.25, 1),-ms-transform 800ms cubic-bezier(0, 1, 0.25, 1),transform 800ms cubic-bezier(0, 1, 0.25, 1), opacity 400ms cubic-bezier(1, 0, 0.9, 1) !important;
+    -webkit-transform: translateY(-33%) !important;
+    -moz-transform: translateY(-33%) !important;
+    -ms-transform: translateY(-33%) !important;
+    -webkit-transition: -webkit-transform 800ms cubic-bezier(0, 1, 0.25, 1),transform 800ms cubic-bezier(0, 1, 0.25, 1), opacity 400ms cubic-bezier(1, 0, 0.9, 1) !important;
+    -moz-transition: -moz-transform 800ms cubic-bezier(0, 1, 0.25, 1),transform 800ms cubic-bezier(0, 1, 0.25, 1), opacity 400ms cubic-bezier(1, 0, 0.9, 1) !important;
+    -ms-transition: -ms-transform 800ms cubic-bezier(0, 1, 0.25, 1),transform 800ms cubic-bezier(0, 1, 0.25, 1), opacity 400ms cubic-bezier(1, 0, 0.9, 1) !important;
 }
 
 /* Variant B: Fade, but don't slide. */
@@ -51,11 +44,8 @@
 
 .echo-fade-only-enter.echo-fade-only-enter-active {
     opacity: 0 !important;
-    transition: opacity 300ms !important;
-    -webkit-transition: opacity 300ms !important;
-    -moz-transition: opacity 300ms !important;
-    -ms-transition: opacity 300ms !important;
-    transition-timing-function: cubic-bezier(0.25, 0, 0.75, 1);
-    -webkit-transition-timing-function: cubic-bezier(0.25, 0, 0.75, 1);
-    -moz-transition-timing-function: cubic-bezier(0.25, 0, 0.75, 1);
+    transition: opacity 300ms cubic-bezier(0.25, 0, 0.75, 1) !important;
+    -webkit-transition: opacity 300ms cubic-bezier(0.25, 0, 0.75, 1) !important;
+    -moz-transition: opacity 300ms cubic-bezier(0.25, 0, 0.75, 1) !important;
+    -ms-transition: opacity 300ms cubic-bezier(0.25, 0, 0.75, 1) !important;
 }
