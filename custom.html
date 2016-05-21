@@ -92,6 +92,16 @@
     Whether the 'Jump Out' button should be displayed in the bottom right and swapped out with the 'Dismiss' button when the cursor is in a nested expression (dynamic), or not (static).
 </p>
 <div class='row'>
+    <label>fraction_behavior:</label>
+    <select id='fraction_behavior'>
+        <option selected>inclusive</option>
+        <option>exclusive</option>
+    </select>
+</div>
+<p>
+    Whether fractions should include the math to their left in their numerator (inclusive) or always render an empty numerator and denominator (exclusive).
+</p>
+<div class='row'>
     <label>echo_animation:</label>
     <select id='echo_animation'>
         <option selected>slide_and_fade</option>
@@ -102,14 +112,14 @@
     Whether the echo animation should slide up and fade out, or just fade out.
 </p>
 <div class='row'>
-    <label>icon_style:</label>
-    <select id='icon_style' disabled>
-        <option>simple</option>
-        <option selected>fancy</option>
+    <label>polarity_toggle:</label>
+    <select id='polarity_toggle'>
+        <option selected>advanced</option>
+        <option>basic</option>
     </select>
 </div>
 <p>
-    Show semi-transparent parts of icons.
+    Whether the polarity toggle button in the Fraction keypad should toggle the polarity expression-wide (advanced) or insert a minus-sign at the cursor.
 </p>
 </div>
 </form>
