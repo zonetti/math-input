@@ -26,7 +26,7 @@
             flex-direction: column;
         }
 
-        select {
+        select, input {
             -webkit-appearance: none;
             font-size: 14pt;
             padding-left: 4px;
@@ -112,14 +112,22 @@
     Whether the echo animation should slide up and fade out, or just fade out.
 </p>
 <div class='row'>
-    <label>polarity_toggle:</label>
-    <select id='polarity_toggle'>
-        <option selected>advanced</option>
-        <option>basic</option>
+    <label>icon_style:</label>
+    <select id='icon_style' disabled>
+        <option>simple</option>
+        <option selected>fancy</option>
     </select>
 </div>
 <p>
-    Whether the polarity toggle button in the Fraction keypad should toggle the polarity expression-wide (advanced) or insert a minus-sign at the cursor.
+    Show semi-transparent parts of icons.
+</p>
+</div>
+<div class='row'>
+    <label>hold_interval:</label>
+    <input id='hold_interval' value='250'></input>
+</div>
+<p>
+    How long to wait before repeating the action of a held key. Right now, this is only applied to the deletion and arrow keys.
 </p>
 </div>
 </form>
@@ -154,6 +162,10 @@
 
     document.querySelectorAll('select').forEach(function(select) {
          values[select.id] = select.value;
+    });
+
+    document.querySelectorAll('input').forEach(function(input) {
+         values[input.id] = input.value;
     });
 
     // The user might be coming to the page by navigating back which
