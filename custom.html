@@ -57,25 +57,11 @@
 <form>
 <div id='container'>
 <div class='row'>
-    <label>keypad_switch:</label>
-    <select id='keypad_switch'>
-        <option selected>toggle</option>
-        <option>page_control</option>
-        <option>tab_bar</option>
-    </select>
-</div>
-<p>
-    UI switching between pages in the advanced keypads.
-</p>
-<div class='row'>
     <label>keypad_type:</label>
     <select id='keypad_type'>
         <option>number</option>
         <option>fraction</option>
-        <option value='basic_expression'>basic</option>
-        <option value='advanced_expression' selected>
-            advanced
-        </option>
+        <option value='expression' selected>expression</option>
     </select>
 </div>
 <p>
@@ -90,16 +76,6 @@
 </div>
 <p>
     Whether the 'Jump Out' button should be displayed in the bottom right and swapped out with the 'Dismiss' button when the cursor is in a nested expression (dynamic), or not (static).
-</p>
-<div class='row'>
-    <label>fraction_behavior:</label>
-    <select id='fraction_behavior'>
-        <option selected>inclusive</option>
-        <option>exclusive</option>
-    </select>
-</div>
-<p>
-    Whether fractions should include the math to their left in their numerator (inclusive) or always render an empty numerator and denominator (exclusive).
 </p>
 <div class='row'>
     <label>echo_animation:</label>
@@ -123,8 +99,8 @@
 </p>
 </div>
 <div class='row'>
-    <label>hold_interval:</label>
-    <input id='hold_interval' value='250'></input>
+    <label>hold_interval_ms:</label>
+    <input id='hold_interval_ms' value='250'></input>
 </div>
 <p>
     How long to wait before repeating the action of a held key. Right now, this is only applied to the deletion and arrow keys.
