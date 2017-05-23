@@ -28,7 +28,11 @@ const MathIcon = React.createClass({
 
     _renderMath() {
         const {math} = this.props;
-        window.katex.render(math, ReactDOM.findDOMNode(this));
+        try {
+          window.katex.render(math, ReactDOM.findDOMNode(this));
+        } catch (e) {
+          console.warn(e.message);
+        }
     },
 
     render() {
