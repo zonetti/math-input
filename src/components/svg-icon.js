@@ -13,25 +13,6 @@ const SvgIcon = React.createClass({
         name: React.PropTypes.string.isRequired,
     },
 
-    componentDidMount() {
-        this._addFillRule();
-    },
-
-    componentDidUpdate(prevProps) {
-        if (prevProps.name !== this.props.name) {
-            this._addFillRule();
-        }
-    },
-
-    _addFillRule() {
-        // TODO(kevinb) remove this when we upgrade to React 15.
-        const node = ReactDOM.findDOMNode(this);
-        if (node instanceof SVGElement) {
-            const firstGroup = node.querySelector('g');
-            firstGroup.setAttributeNS(null, 'fill-rule', 'evenodd');
-        }
-    },
-
     render() {
         const {color, name} = this.props;
 
