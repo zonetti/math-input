@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha test/test_*.js --compilers js:babel-register",
     "watch_test": "mocha test/test_spec.js --watch --compilers js:babel-register",
-    "watch": "webpack --config webpack.config.dev.js --watch"
+    "watch": "webpack --config webpack.config.dev.js --watch",
+    "postinstall": "BABEL_ENV=production babel src --out-dir build --copy-files"
   },
   "author": "",
   "license": "MIT",
