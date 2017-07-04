@@ -1,6 +1,8 @@
 const React = require('react');
 const {StyleSheet, css} = require('aphrodite');
 
+let lastTouchStart = 0;
+
 const View = React.createClass({
     propTypes: {
         ariaLabel: React.PropTypes.string,
@@ -73,43 +75,54 @@ const View = React.createClass({
             onTouchCancel={this.props.onTouchCancel}
             onTouchEnd={this.props.onTouchEnd}
             onTouchMove={this.props.onTouchMove}
-            onTouchStart={this.props.onTouchStart}
+            onTouchStart={(e) => {
+              lastTouchStart = e.timeStamp;
+              this.props.onTouchStart && this.props.onTouchStart(e);
+            }}
             onMouseDown={(e) => {
-                // Touch events have extra properties compared to mouse
-                // events and also have a concept of "pointer lock",
-                // where the element that receives the touchstart event
-                // receives all subsequent events for that same touch,
-                // whereas mouse events change target if the cursor
-                // moves. We take mouse events and pretend they're touch
-                // events.
-                const augmentMouseEvent = (e) => {
-                    e.touches = e.changedTouches = [{
-                        identifier: 1,
-                        clientX: e.clientX,
-                        clientY: e.clientY,
-                    }];
-                    e.isMouseEvent = true;
-                };
+              if (e.timeStamp - lastTouchStart < 400) {
+                // Ignore clicks within 400 ms of a touch -- in most cases,
+                // this is caused by a simulated click event from the same
+                // touch we just got a touch event for, either immediately
+                // after or with a 300 ms delay.
+                return;
+              }
 
-                const doc = this._div.ownerDocument;
-                const onMove = (e) => {
-                    augmentMouseEvent(e);
-                    this.props.onTouchMove && this.props.onTouchMove(e);
-                };
-                const onUp = (e) => {
-                    doc.removeEventListener('mousemove', onMove);
-                    doc.removeEventListener('mouseup', onUp);
-                    augmentMouseEvent(e);
-                    this.props.onTouchEnd && this.props.onTouchEnd(e);
-                };
-                doc.addEventListener('mousemove', onMove, false);
-                doc.addEventListener('mouseup', onUp, false);
+              // Touch events have extra properties compared to mouse
+              // events and also have a concept of "pointer lock",
+              // where the element that receives the touchstart event
+              // receives all subsequent events for that same touch,
+              // whereas mouse events change target if the cursor
+              // moves. We take mouse events and pretend they're touch
+              // events.
+              const augmentMouseEvent = (e) => {
+                  e.touches = e.changedTouches = [{
+                      identifier: 1,
+                      clientX: e.clientX,
+                      clientY: e.clientY,
+                  }];
+                  e.isMouseEvent = true;
+              };
 
-                // Need to .persist() a React event object before adding
-                // properties to it since it's reused otherwise.
-                e.persist();
-                augmentMouseEvent(e);
-                this.props.onTouchStart && this.props.onTouchStart(e);
+              const doc = this._div.ownerDocument;
+              const onMove = (e) => {
+                  augmentMouseEvent(e);
+                  this.props.onTouchMove && this.props.onTouchMove(e);
+              };
+              const onUp = (e) => {
+                  doc.removeEventListener('mousemove', onMove);
+                  doc.removeEventListener('mouseup', onUp);
+                  augmentMouseEvent(e);
+                  this.props.onTouchEnd && this.props.onTouchEnd(e);
+              };
+              doc.addEventListener('mousemove', onMove, false);
+              doc.addEventListener('mouseup', onUp, false);
+
+              // Need to .persist() a React event object before adding
+              // properties to it since it's reused otherwise.
+              e.persist();
+              augmentMouseEvent(e);
+              this.props.onTouchStart && this.props.onTouchStart(e);
             }}
             ref={(node) => this._div = node}
             aria-label={this.props.ariaLabel}
