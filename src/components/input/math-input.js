@@ -234,6 +234,7 @@ const MathInput = React.createClass({
         window.removeEventListener('keydown', this._forwardGlobalKeydown);
         window.removeEventListener('keypress', this._forwardGlobalKeypress);
         window.removeEventListener('click', this.blurOnClickOutside);
+        window.removeEventListener('mousedown', this.blurOnClickOutside);
     },
 
     _clearKeypadBoundsCache(keypadNode) {
