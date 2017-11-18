@@ -20,8 +20,28 @@ var App = React.createClass({
             value: ""
         };
     },
-    render: function render() {
+    componentDidMount: function componentDidMount() {
         var _this = this;
+
+        this.props.callbacks.value = function (newVal) {
+            if (newVal) {
+                _this.setState({ value: newVal });
+            } else {
+                return _this.state.value;
+            }
+        };
+        this.props.callbacks.blur = function () {
+            _this.keypadInput.blur();
+        };
+    },
+    onChange: function onChange(value, cb) {
+        //this.setState({ value }, cb);
+        if (this.props.onChange) {
+            this.props.onChange(value);
+        }
+    },
+    render: function render() {
+        var _this2 = this;
 
         return React.createElement(
             View,
@@ -37,23 +57,24 @@ var App = React.createClass({
                     }
                 },
                 React.createElement(KeypadInput, {
-                    value: this.state.value,
+                    value: this.props.value,
                     keypadElement: this.state.keypadElement,
-                    onChange: function onChange(value, cb) {
-                        return _this.setState({ value: value }, cb);
-                    },
+                    onChange: this.onChange,
                     onFocus: function onFocus() {
-                        return _this.state.keypadElement.activate();
+                        return _this2.state.keypadElement.activate();
                     },
                     onBlur: function onBlur() {
-                        return _this.state.keypadElement.dismiss();
+                        return _this2.state.keypadElement.dismiss();
+                    },
+                    ref: function ref(element) {
+                        return _this2.keypadInput = element;
                     }
                 })
             ),
             React.createElement(Keypad, {
                 onElementMounted: function onElementMounted(node) {
-                    if (node && !_this.state.keypadElement) {
-                        _this.setState({ keypadElement: node });
+                    if (node && !_this2.state.keypadElement) {
+                        _this2.setState({ keypadElement: node });
                     }
                 }
             })
