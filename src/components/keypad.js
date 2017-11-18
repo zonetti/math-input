@@ -29,6 +29,7 @@ const Keypad = React.createClass({
     },
 
     componentDidMount() {
+        this._isMounted = true;
         window.addEventListener("resize", this._onResize);
         this._updateSizeAndPosition();
     },
@@ -40,6 +41,7 @@ const Keypad = React.createClass({
     },
 
     componentWillUnmount() {
+        this._isMounted = false;
         window.removeEventListener("resize", this._onResize);
     },
 
@@ -69,7 +71,7 @@ const Keypad = React.createClass({
             this._resizeTimeout = setTimeout(() => {
                 this._resizeTimeout = null;
 
-                if (this.isMounted()) {
+                if (this._isMounted) {
                     this._updateSizeAndPosition();
                 }
             }, 66);

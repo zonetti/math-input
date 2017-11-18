@@ -1,6 +1,5 @@
 .keypad-input .mq-editable-field .mq-cursor:not(:only-child),
-.keypad-input .mq-editable-field .mq-root-block.mq-hasCursor > .mq-cursor:only-child
- {
+.keypad-input .mq-editable-field .mq-root-block.mq-hasCursor > .mq-cursor:only-child {
     /* HACK(charlie): Magic numbers to properly size and position the vertical
        cursor, which is visible whenever the cursor is not alone in its parent,
        with the exception that it's also visible when the entire input is
@@ -51,44 +50,42 @@
 }
 
 .keypad-input .mq-empty {
-  background: transparent !important;
+    background: transparent !important;
 }
 
 /* also adds empty block styling to elements with .mq-hasCursor but without a cursor element (this happens where the cursor is when the math input loses focus) */
 .keypad-input .mq-empty:not(.mq-root-block):after, .keypad-input .mq-hasCursor:empty:not(.mq-root-block):after {
-  visibility: visible !important;
+    visibility: visible !important;
 
-  /* hides the 'c' content added by MathQuill to measure the width */
-  color: transparent;
+    /* hides the 'c' content added by MathQuill to measure the width */
+    color: transparent;
 
-  display: inline-block;
-  border: 2px solid #ccc;
-  border-radius: 1px;
-  padding: 0 4px 0 4px;
-  margin-left: -1px;
-  margin-right: -1px;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 1px;
+    padding: 0 4px 0 4px;
+    margin-left: -1px;
+    margin-right: -1px;
 }
 
 .keypad-input .mq-selection .mq-empty:not(.mq-root-block):after {
-  border-color: #ffffff;
+    border-color: #ffffff;
 }
 
 .keypad-input .mq-hasCursor:empty:not(.mq-root-block):after {
-  /* place a c inside for sizing the cursor (for the case explained above); normally, MathQuill already does this for .mq-cursor */
-  content: 'c';
+    /* place a c inside for sizing the cursor (for the case explained above); normally, MathQuill already does this for .mq-cursor */
+    content: 'c';
 }
 
 .keypad-input .mq-math-mode .mq-selection .mq-non-leaf,
-.keypad-input .mq-editable-field .mq-selection .mq-non-leaf
-{
+.keypad-input .mq-editable-field .mq-selection .mq-non-leaf {
     background: #78c008 !important;
     color: white !important;
     border-color: white !important;
 }
 
 .keypad-input .mq-math-mode .mq-selection .mq-scaled,
-.keypad-input .mq-editable-field .mq-selection .mq-scaled
-{
+.keypad-input .mq-editable-field .mq-selection .mq-scaled {
     background: transparent !important;
     color: white !important;
     border-color: transparent !important;
@@ -101,8 +98,9 @@
     border-color: white !important;
 }
 
-// The keypad sets its own color styles for KaTeX elements that are rendered in
-// its keys, so prevent any external styling.
+/* The keypad sets its own color styles for KaTeX elements that are rendered in
+*  its keys, so prevent any external styling.
+*/
 .keypad-container .katex {
     color: inherit !important;
 }

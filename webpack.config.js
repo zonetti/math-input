@@ -35,7 +35,7 @@ module.exports = {
         extensions: ['', '.js', '.jsx'],
         alias: {
             // allows us to do `const MathQuill = require('mathquill');`
-            mathquill: path.join(__dirname, "mathquill/mathquill.js"),
+            mathquill: path.join(__dirname, "node_modules/mathquill/build/mathquill.js"),
         },
     },
     module: {
@@ -46,7 +46,7 @@ module.exports = {
         }, {
             // appends `module.exports = window.MathQuill` to mathquill.js
             test: /[\/]mathquill\.js$/,
-            loader: "exports?window.MathQuill",
+            loaders: ["exports?window.MathQuill", "imports?window.jQuery=jquery"],
         }],
-    },
+    }
 };

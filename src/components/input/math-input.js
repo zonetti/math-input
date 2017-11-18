@@ -3,6 +3,7 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const {StyleSheet} = require("aphrodite");
+const i18n = require('../../lib/i18n');
 
 const {View} = require('../../fake-react-native-web');
 const CursorHandle = require('./cursor-handle');
@@ -65,6 +66,8 @@ const MathInput = React.createClass({
     },
 
     componentDidMount() {
+        this._isMounted = true;
+
         this.mathField = new MathWrapper(this._mathContainer, {}, {
             onCursorMove: (cursor) => {
                 // TODO(charlie): It's not great that there is so much coupling
@@ -225,6 +228,8 @@ const MathInput = React.createClass({
     },
 
     componentWillUnmount() {
+        this._isMounted = false;
+
         window.removeEventListener('touchstart', this.recordTouchStartOutside);
         window.removeEventListener('touchend', this.blurOnTouchEndOutside);
         window.removeEventListener('touchcancel', this.blurOnTouchEndOutside);
@@ -369,7 +374,7 @@ const MathInput = React.createClass({
             // we'd use requestAnimationFrame here, but it's unsupported on
             // Android Browser 4.3.
             setTimeout(() => {
-                if (this.isMounted()) {
+                if (this._isMounted) {
                     // TODO(benkomalo): the keypad is animating at this point,
                     // so we can't call _cacheKeypadBounds(), even though
                     // it'd be nice to do so. It should probably be the case

@@ -6,7 +6,7 @@
 
 const $ = require('jquery');
 // TODO(kevinb) allow test code to use const MathQuill = require('mathquill');
-const MathQuill = window.MathQuill;
+const MathQuill = require('mathquill');
 
 const Keys = require('../../data/keys');
 const CursorContexts = require('./cursor-contexts');

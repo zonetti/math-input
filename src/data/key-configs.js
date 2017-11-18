@@ -7,6 +7,7 @@
 const Keys = require('../data/keys');
 const {DecimalSeparators, IconTypes, KeyTypes} = require('../consts');
 const {decimalSeparator} = require('../utils');
+const i18n = require('../lib/i18n');
 
 const KeyConfigs = {
     // Basic math keys.
