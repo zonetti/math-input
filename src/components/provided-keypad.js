@@ -12,24 +12,24 @@ const {
 } = require('../actions');
 const createStore = require('../store');
 
-const ProvidedKeypad = React.createClass({
-    propTypes: {
+class ProvidedKeypad extends React.Component {
+    static propTypes = {
         onElementMounted: PropTypes.func,
-    },
+    };
 
     componentWillMount() {
         this.store = createStore();
-    },
+    }
 
-    activate() {
+    activate = () => {
         this.store.dispatch(activateKeypad());
-    },
+    };
 
-    dismiss() {
+    dismiss = () => {
         this.store.dispatch(dismissKeypad());
-    },
+    };
 
-    configure(configuration, cb) {
+    configure = (configuration, cb) => {
         this.store.dispatch(configureKeypad(configuration));
 
         // HACK(charlie): In Perseus, triggering a focus causes the keypad to
@@ -40,15 +40,15 @@ const ProvidedKeypad = React.createClass({
         // would require middleware, etc., so we just hack it on with
         // `setTimeout` for now.
         setTimeout(() => cb && cb());
-    },
+    };
 
-    setCursor(cursor) {
+    setCursor = (cursor) => {
         this.store.dispatch(setCursor(cursor));
-    },
+    };
 
-    setKeyHandler(keyHandler) {
+    setKeyHandler = (keyHandler) => {
         this.store.dispatch(setKeyHandler(keyHandler));
-    },
+    };
 
     render() {
         const {onElementMounted, ...rest} = this.props;
@@ -72,7 +72,7 @@ const ProvidedKeypad = React.createClass({
                 {...rest}
             />
         </Provider>;
-    },
-});
+    }
+}
 
 module.exports = ProvidedKeypad;

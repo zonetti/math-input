@@ -16,8 +16,8 @@ const GestureManager = require('./gesture-manager');
 const {bordersPropType, keyIdPropType} = require('./prop-types');
 const {KeyTypes} = require('../consts');
 
-const TouchableKeypadButton = React.createClass({
-    propTypes: {
+class TouchableKeypadButton extends React.Component {
+    static propTypes = {
         borders: bordersPropType,
         childKeyIds: PropTypes.arrayOf(keyIdPropType),
         disabled: PropTypes.bool,
@@ -27,7 +27,7 @@ const TouchableKeypadButton = React.createClass({
         popoverEnabled: PropTypes.bool,
         style: PropTypes.any,
         type: PropTypes.oneOf(Object.keys(KeyTypes)).isRequired,
-    },
+    };
 
     shouldComponentUpdate(newProps) {
         // We take advantage of a few different properties of our key
@@ -40,12 +40,12 @@ const TouchableKeypadButton = React.createClass({
             newProps.disabled !== this.props.disabled ||
             newProps.popoverEnabled !== this.props.popoverEnabled ||
             newProps.type !== this.props.type || !!newProps.style;
-    },
+    }
 
     componentWillUnmount() {
         const {gestureManager, id} = this.props;
         gestureManager.unregisterDOMNode(id);
-    },
+    }
 
     render() {
         const {
@@ -77,8 +77,8 @@ const TouchableKeypadButton = React.createClass({
             {...eventHandlers}
             {...rest}
         />;
-    },
-});
+    }
+}
 
 const extractProps = (keyConfig) => {
     const {ariaLabel, icon, type} = keyConfig;

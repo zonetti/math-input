@@ -10,11 +10,11 @@ const {View, Text} = require('../fake-react-native-web');
 const {row, centered} = require('./styles');
 const {iconSizeHeightPx, iconSizeWidthPx} = require('./common-style');
 
-const TextIcon = React.createClass({
-    propTypes: {
+class TextIcon extends React.Component {
+    static propTypes = {
         character: PropTypes.string.isRequired,
         style: PropTypes.any,
-    },
+    };
 
     render() {
         const {character, style} = this.props;
@@ -31,8 +31,8 @@ const TextIcon = React.createClass({
                 {character}
             </Text>
         </View>;
-    },
-});
+    }
+}
 
 const styles = StyleSheet.create({
     size: {

@@ -2,7 +2,15 @@
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var PropTypes = require('prop-types');
 var React = require('react');
@@ -42,176 +50,195 @@ var _require8 = require('./common-style'),
     innerBorderWidthPx = _require8.innerBorderWidthPx,
     compactKeypadBorderRadiusPx = _require8.compactKeypadBorderRadiusPx;
 
-var KeypadContainer = React.createClass({
-    displayName: 'KeypadContainer',
+var KeypadContainer = function (_React$Component) {
+    _inherits(KeypadContainer, _React$Component);
 
-    propTypes: {
-        active: PropTypes.bool,
-        extraKeys: PropTypes.arrayOf(keyIdPropType),
-        keypadType: PropTypes.oneOf(Object.keys(KeypadTypes)).isRequired,
-        layoutMode: PropTypes.oneOf(Object.keys(LayoutModes)).isRequired,
-        navigationPadEnabled: PropTypes.bool.isRequired,
-        onDismiss: PropTypes.func,
-        // A callback that should be triggered with the root React element on
-        // mount.
-        onElementMounted: PropTypes.func,
-        onPageSizeChange: PropTypes.func.isRequired,
-        style: PropTypes.any
-    },
+    function KeypadContainer() {
+        var _ref;
 
-    getInitialState: function getInitialState() {
-        // Use (partially unsupported) viewport units until componentDidMount.
-        // It's okay to use the viewport units since they'll be overridden as
-        // soon as the JavaScript kicks in.
-        return {
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, KeypadContainer);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = KeypadContainer.__proto__ || Object.getPrototypeOf(KeypadContainer)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
             hasBeenActivated: false,
             viewportWidth: "100vw"
-        };
-    },
-    componentWillMount: function componentWillMount() {
-        if (this.props.active) {
-            this.setState({
-                hasBeenActivated: this.props.active
+        }, _this._throttleResizeHandler = function () {
+            // Throttle the resize callbacks.
+            // https://developer.mozilla.org/en-US/docs/Web/Events/resize
+            if (_this._resizeTimeout == null) {
+                _this._resizeTimeout = setTimeout(function () {
+                    _this._resizeTimeout = null;
+
+                    _this._onResize();
+                }, 66);
+            }
+        }, _this._onResize = function () {
+            // Whenever the page resizes, we need to force an update, as the button
+            // heights and keypad width are computed based on horizontal space.
+            _this.setState({
+                viewportWidth: window.innerWidth
             });
+
+            _this.props.onPageSizeChange(window.innerWidth, window.innerHeight);
+        }, _this.renderKeypad = function () {
+            var _this$props = _this.props,
+                extraKeys = _this$props.extraKeys,
+                keypadType = _this$props.keypadType,
+                layoutMode = _this$props.layoutMode,
+                navigationPadEnabled = _this$props.navigationPadEnabled;
+
+
+            var keypadProps = {
+                extraKeys: extraKeys,
+                // HACK(charlie): In order to properly round the corners of the
+                // compact keypad, we need to instruct some of our child views to
+                // crop themselves. At least we're colocating all the layout
+                // information in this component, though.
+                roundTopLeft: layoutMode === LayoutModes.COMPACT && !navigationPadEnabled,
+                roundTopRight: layoutMode === LayoutModes.COMPACT
+            };
+
+            // Select the appropriate keyboard given the type.
+            // TODO(charlie): In the future, we might want to move towards a
+            // data-driven approach to defining keyboard layouts, and have a
+            // generic keyboard that takes some "keyboard data" and renders it.
+            // However, the keyboards differ pretty heavily right now and it's not
+            // clear what that format would look like exactly. Plus, there aren't
+            // very many of them. So to keep us moving, we'll just hardcode.
+            switch (keypadType) {
+                case KeypadTypes.FRACTION:
+                    return React.createElement(FractionKeypad, keypadProps);
+
+                case KeypadTypes.EXPRESSION:
+                    return React.createElement(ExpressionKeypad, keypadProps);
+
+                default:
+                    throw new Error("Invalid keypad type: " + keypadType);
+            }
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(KeypadContainer, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            if (this.props.active) {
+                this.setState({
+                    hasBeenActivated: this.props.active
+                });
+            }
         }
-    },
-    componentDidMount: function componentDidMount() {
-        // Relay the initial size metrics.
-        this._onResize();
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            // Relay the initial size metrics.
+            this._onResize();
 
-        // And update it on resize.
-        window.addEventListener("resize", this._throttleResizeHandler);
-        window.addEventListener("orientationchange", this._throttleResizeHandler);
-    },
-    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-        if (!this.state.hasBeenActivated && nextProps.active) {
-            this.setState({
-                hasBeenActivated: true
-            });
+            // And update it on resize.
+            window.addEventListener("resize", this._throttleResizeHandler);
+            window.addEventListener("orientationchange", this._throttleResizeHandler);
         }
-    },
-    componentDidUpdate: function componentDidUpdate(prevProps) {
-        if (prevProps.active && !this.props.active) {
-            this.props.onDismiss && this.props.onDismiss();
+    }, {
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            if (!this.state.hasBeenActivated && nextProps.active) {
+                this.setState({
+                    hasBeenActivated: true
+                });
+            }
         }
-    },
-    componentWillUnmount: function componentWillUnmount() {
-        window.removeEventListener("resize", this._throttleResizeHandler);
-        window.removeEventListener("orientationchange", this._throttleResizeHandler);
-    },
-    _throttleResizeHandler: function _throttleResizeHandler() {
-        var _this = this;
-
-        // Throttle the resize callbacks.
-        // https://developer.mozilla.org/en-US/docs/Web/Events/resize
-        if (this._resizeTimeout == null) {
-            this._resizeTimeout = setTimeout(function () {
-                _this._resizeTimeout = null;
-
-                _this._onResize();
-            }, 66);
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate(prevProps) {
+            if (prevProps.active && !this.props.active) {
+                this.props.onDismiss && this.props.onDismiss();
+            }
         }
-    },
-    _onResize: function _onResize() {
-        // Whenever the page resizes, we need to force an update, as the button
-        // heights and keypad width are computed based on horizontal space.
-        this.setState({
-            viewportWidth: window.innerWidth
-        });
-
-        this.props.onPageSizeChange(window.innerWidth, window.innerHeight);
-    },
-    renderKeypad: function renderKeypad() {
-        var _props = this.props,
-            extraKeys = _props.extraKeys,
-            keypadType = _props.keypadType,
-            layoutMode = _props.layoutMode,
-            navigationPadEnabled = _props.navigationPadEnabled;
-
-
-        var keypadProps = {
-            extraKeys: extraKeys,
-            // HACK(charlie): In order to properly round the corners of the
-            // compact keypad, we need to instruct some of our child views to
-            // crop themselves. At least we're colocating all the layout
-            // information in this component, though.
-            roundTopLeft: layoutMode === LayoutModes.COMPACT && !navigationPadEnabled,
-            roundTopRight: layoutMode === LayoutModes.COMPACT
-        };
-
-        // Select the appropriate keyboard given the type.
-        // TODO(charlie): In the future, we might want to move towards a
-        // data-driven approach to defining keyboard layouts, and have a
-        // generic keyboard that takes some "keyboard data" and renders it.
-        // However, the keyboards differ pretty heavily right now and it's not
-        // clear what that format would look like exactly. Plus, there aren't
-        // very many of them. So to keep us moving, we'll just hardcode.
-        switch (keypadType) {
-            case KeypadTypes.FRACTION:
-                return React.createElement(FractionKeypad, keypadProps);
-
-            case KeypadTypes.EXPRESSION:
-                return React.createElement(ExpressionKeypad, keypadProps);
-
-            default:
-                throw new Error("Invalid keypad type: " + keypadType);
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            window.removeEventListener("resize", this._throttleResizeHandler);
+            window.removeEventListener("orientationchange", this._throttleResizeHandler);
         }
-    },
-    render: function render() {
-        var _this2 = this;
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
 
-        var _props2 = this.props,
-            active = _props2.active,
-            layoutMode = _props2.layoutMode,
-            navigationPadEnabled = _props2.navigationPadEnabled,
-            onElementMounted = _props2.onElementMounted,
-            style = _props2.style;
-        var hasBeenActivated = this.state.hasBeenActivated;
+            var _props = this.props,
+                active = _props.active,
+                layoutMode = _props.layoutMode,
+                navigationPadEnabled = _props.navigationPadEnabled,
+                onElementMounted = _props.onElementMounted,
+                style = _props.style;
+            var hasBeenActivated = this.state.hasBeenActivated;
 
-        // NOTE(charlie): We render the transforms as pure inline styles to
-        // avoid an Aphrodite bug in mobile Safari.
-        //   See: https://github.com/Khan/aphrodite/issues/68.
+            // NOTE(charlie): We render the transforms as pure inline styles to
+            // avoid an Aphrodite bug in mobile Safari.
+            //   See: https://github.com/Khan/aphrodite/issues/68.
 
-        var dynamicStyle = _extends({}, active ? inlineStyles.active : inlineStyles.hidden, !active && !hasBeenActivated ? inlineStyles.invisible : {});
+            var dynamicStyle = _extends({}, active ? inlineStyles.active : inlineStyles.hidden, !active && !hasBeenActivated ? inlineStyles.invisible : {});
 
-        var keypadContainerStyle = [row, centered, fullWidth, styles.keypadContainer].concat(_toConsumableArray(Array.isArray(style) ? style : [style]));
+            var keypadContainerStyle = [row, centered, fullWidth, styles.keypadContainer].concat(_toConsumableArray(Array.isArray(style) ? style : [style]));
 
-        var keypadStyle = [row, styles.keypadBorder, layoutMode === LayoutModes.FULLSCREEN ? styles.fullscreen : styles.compact];
+            var keypadStyle = [row, styles.keypadBorder, layoutMode === LayoutModes.FULLSCREEN ? styles.fullscreen : styles.compact];
 
-        // TODO(charlie): When the keypad is shorter than the width of the
-        // screen, add a border on its left and right edges, and round out the
-        // corners.
-        return React.createElement(
-            View,
-            {
-                style: keypadContainerStyle,
-                dynamicStyle: dynamicStyle,
-                extraClassName: 'keypad-container'
-            },
-            React.createElement(
+            // TODO(charlie): When the keypad is shorter than the width of the
+            // screen, add a border on its left and right edges, and round out the
+            // corners.
+            return React.createElement(
                 View,
                 {
-                    style: keypadStyle,
-                    ref: function ref(element) {
-                        if (!_this2.hasMounted && element) {
-                            _this2.hasMounted = true;
-                            onElementMounted(element);
-                        }
-                    }
+                    style: keypadContainerStyle,
+                    dynamicStyle: dynamicStyle,
+                    extraClassName: 'keypad-container'
                 },
-                navigationPadEnabled && React.createElement(NavigationPad, {
-                    roundTopLeft: layoutMode === LayoutModes.COMPACT,
-                    style: styles.navigationPadContainer
-                }),
                 React.createElement(
                     View,
-                    { style: styles.keypadLayout },
-                    this.renderKeypad()
+                    {
+                        style: keypadStyle,
+                        ref: function ref(element) {
+                            if (!_this2.hasMounted && element) {
+                                _this2.hasMounted = true;
+                                onElementMounted(element);
+                            }
+                        }
+                    },
+                    navigationPadEnabled && React.createElement(NavigationPad, {
+                        roundTopLeft: layoutMode === LayoutModes.COMPACT,
+                        style: styles.navigationPadContainer
+                    }),
+                    React.createElement(
+                        View,
+                        { style: styles.keypadLayout },
+                        this.renderKeypad()
+                    )
                 )
-            )
-        );
-    }
-});
+            );
+        }
+    }]);
+
+    return KeypadContainer;
+}(React.Component);
+
+KeypadContainer.propTypes = {
+    active: PropTypes.bool,
+    extraKeys: PropTypes.arrayOf(keyIdPropType),
+    keypadType: PropTypes.oneOf(Object.keys(KeypadTypes)).isRequired,
+    layoutMode: PropTypes.oneOf(Object.keys(LayoutModes)).isRequired,
+    navigationPadEnabled: PropTypes.bool.isRequired,
+    onDismiss: PropTypes.func,
+    // A callback that should be triggered with the root React element on
+    // mount.
+    onElementMounted: PropTypes.func,
+    onPageSizeChange: PropTypes.func.isRequired,
+    style: PropTypes.any
+};
+
 
 var keypadAnimationDurationMs = 300;
 var borderWidthPx = 1;

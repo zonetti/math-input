@@ -6,14 +6,14 @@ const PropTypes = require('prop-types');
  */
 const React = require('react');
 
-const Period = React.createClass({
-    propTypes: {
+class Period extends React.Component {
+    static propTypes = {
         color: PropTypes.string.isRequired,
-    },
+    };
 
     render() {
         return <svg width="48" height="48" viewBox="0 0 48 48"><g fill="none" fillRule="evenodd"><path fill="none" d="M0 0h48v48H0z"/><circle fill={this.props.color} cx="24" cy="30" r="2"/></g></svg>;
-    },
-});
+    }
+}
 
 module.exports = Period;

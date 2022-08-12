@@ -5,15 +5,13 @@ const { components } = require('../index');
 
 const { Keypad, KeypadInput } = components;
 
-const App = React.createClass({
-    getInitialState() {
-        return {
-            keypadElement: null,
-            value: "",
-        };
-    },
+class App extends React.Component {
+    state = {
+        keypadElement: null,
+        value: "",
+    };
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.callbacks.value = (newVal) => {
             if (newVal) {
                 this.setState({ value: newVal });
@@ -24,14 +22,14 @@ const App = React.createClass({
         this.props.callbacks.blur = () => {
             this.keypadInput.blur();
         };
-    },
+    }
 
-    onChange (value, cb) {
+    onChange = (value, cb) => {
         //this.setState({ value }, cb);
         if (this.props.onChange) {
             this.props.onChange(value);
         }
-    },
+    };
 
     render() {
         return <View>
@@ -60,7 +58,7 @@ const App = React.createClass({
                 }}
             />
         </View>;
-    },
-});
+    }
+}
 
 module.exports = App;

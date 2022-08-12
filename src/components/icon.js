@@ -4,7 +4,6 @@ const PropTypes = require('prop-types');
  */
 
 const React = require('react');
-const PureRenderMixin = require('react-addons-pure-render-mixin');
 const {StyleSheet} = require('aphrodite');
 
 const MathIcon = require('./math-icon');
@@ -17,17 +16,15 @@ const {gray25} = require('./common-style');
 const focusedColor = '#FFF';
 const unfocusedColor = gray25;
 
-const Icon = React.createClass({
-    propTypes: {
+class Icon extends React.PureComponent {
+    static propTypes = {
         focused: PropTypes.bool,
         icon: iconPropType.isRequired,
         // An Aphrodite style object, or an array of Aphrodite style objects.
         // Note that custom styles will only be applied to text and math icons
         // (and not SVG icons).
         style: PropTypes.any,
-    },
-
-    mixins: [PureRenderMixin],
+    };
 
     render() {
         const {focused, icon, style} = this.props;
@@ -62,8 +59,8 @@ const Icon = React.createClass({
         }
 
         throw new Error("No icon or symbol provided");
-    },
-});
+    }
+}
 
 const styles = StyleSheet.create({
     unfocused: {

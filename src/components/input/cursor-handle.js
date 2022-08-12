@@ -20,8 +20,8 @@ const cursorHeightPx = cursorHandleDistanceMultiplier * cursorRadiusPx +
     cursorRadiusPx;
 const cursorWidthPx = 2 * cursorRadiusPx;
 
-const CursorHandle = React.createClass({
-    propTypes: {
+class CursorHandle extends React.Component {
+    static propTypes = {
         animateIntoPosition: PropTypes.bool,
         onTouchCancel: PropTypes.func.isRequired,
         onTouchEnd: PropTypes.func.isRequired,
@@ -30,16 +30,14 @@ const CursorHandle = React.createClass({
         visible: PropTypes.bool.isRequired,
         x: PropTypes.number.isRequired,
         y: PropTypes.number.isRequired,
-    },
+    };
 
-    getDefaultProps() {
-        return {
-            animateIntoPosition: false,
-            visible: false,
-            x: 0,
-            y: 0,
-        };
-    },
+    static defaultProps = {
+        animateIntoPosition: false,
+        visible: false,
+        x: 0,
+        y: 0,
+    };
 
     render() {
         const {x, y, animateIntoPosition} = this.props;
@@ -103,7 +101,7 @@ const CursorHandle = React.createClass({
                 />
             </svg>
         </span>;
-    },
-});
+    }
+}
 
 module.exports = CursorHandle;

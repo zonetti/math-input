@@ -14,11 +14,11 @@ const {iconPropType} = require('./prop-types');
 const {row, column, centered, fullWidth} = require('./styles');
 const {iconSizeHeightPx, iconSizeWidthPx} = require('./common-style');
 
-const MultiSymbolGrid = React.createClass({
-    propTypes: {
+class MultiSymbolGrid extends React.Component {
+    static propTypes = {
         focused: PropTypes.bool,
         icons: PropTypes.arrayOf(iconPropType).isRequired,
-    },
+    };
 
     render() {
         const {focused, icons} = this.props;
@@ -106,8 +106,8 @@ const MultiSymbolGrid = React.createClass({
         }
 
         throw new Error("Invalid number of icons:", icons.length);
-    },
-});
+    }
+}
 
 const verticalInsetPx = 2;
 const horizontalInsetPx = 4;

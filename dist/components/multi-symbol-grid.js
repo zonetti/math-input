@@ -1,5 +1,13 @@
 'use strict';
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 var PropTypes = require('prop-types');
 /**
  * A grid of symbols, rendered as text and positioned based on the number of
@@ -32,72 +40,48 @@ var _require6 = require('./common-style'),
     iconSizeHeightPx = _require6.iconSizeHeightPx,
     iconSizeWidthPx = _require6.iconSizeWidthPx;
 
-var MultiSymbolGrid = React.createClass({
-    displayName: 'MultiSymbolGrid',
+var MultiSymbolGrid = function (_React$Component) {
+    _inherits(MultiSymbolGrid, _React$Component);
 
-    propTypes: {
-        focused: PropTypes.bool,
-        icons: PropTypes.arrayOf(iconPropType).isRequired
-    },
+    function MultiSymbolGrid() {
+        _classCallCheck(this, MultiSymbolGrid);
 
-    render: function render() {
-        var _props = this.props,
-            focused = _props.focused,
-            icons = _props.icons;
+        return _possibleConstructorReturn(this, (MultiSymbolGrid.__proto__ || Object.getPrototypeOf(MultiSymbolGrid)).apply(this, arguments));
+    }
 
-        // Validate that we only received math-based icons. Right now, this
-        // component only supports math icons (and it should only be passed
-        // variables and Greek letters, which are always rendered as math).
-        // Supporting other types of icons is possible but would require
-        // some styles coercion and doesn't seem worthwhile right now.
+    _createClass(MultiSymbolGrid, [{
+        key: 'render',
+        value: function render() {
+            var _props = this.props,
+                focused = _props.focused,
+                icons = _props.icons;
 
-        icons.forEach(function (icon) {
-            if (icon.type !== IconTypes.MATH) {
-                throw new Error('Received invalid icon: type=' + icon.type + ', ' + ('data=' + icon.data));
-            }
-        });
+            // Validate that we only received math-based icons. Right now, this
+            // component only supports math icons (and it should only be passed
+            // variables and Greek letters, which are always rendered as math).
+            // Supporting other types of icons is possible but would require
+            // some styles coercion and doesn't seem worthwhile right now.
 
-        if (icons.length === 1) {
-            return React.createElement(Icon, { icon: icons[0], focused: focused });
-        } else {
-            var primaryIconStyle = styles.base;
-            var secondaryIconStyle = [styles.base, styles.secondary];
+            icons.forEach(function (icon) {
+                if (icon.type !== IconTypes.MATH) {
+                    throw new Error('Received invalid icon: type=' + icon.type + ', ' + ('data=' + icon.data));
+                }
+            });
 
-            if (icons.length === 2) {
-                return React.createElement(
-                    View,
-                    { style: [row, styles.size] },
-                    React.createElement(
+            if (icons.length === 1) {
+                return React.createElement(Icon, { icon: icons[0], focused: focused });
+            } else {
+                var primaryIconStyle = styles.base;
+                var secondaryIconStyle = [styles.base, styles.secondary];
+
+                if (icons.length === 2) {
+                    return React.createElement(
                         View,
-                        { style: [column, centered, fullWidth, styles.middleLeft]
-                        },
-                        React.createElement(Icon, {
-                            style: primaryIconStyle,
-                            icon: icons[0],
-                            focused: focused
-                        })
-                    ),
-                    React.createElement(
-                        View,
-                        { style: [column, centered, fullWidth, styles.middleRight]
-                        },
-                        React.createElement(Icon, {
-                            style: secondaryIconStyle,
-                            icon: icons[1],
-                            focused: focused
-                        })
-                    )
-                );
-            } else if (icons.length >= 3) {
-                return React.createElement(
-                    View,
-                    { style: [column, styles.size] },
-                    React.createElement(
-                        View,
-                        { style: row },
+                        { style: [row, styles.size] },
                         React.createElement(
                             View,
-                            { style: [centered, fullWidth, styles.topLeft] },
+                            { style: [column, centered, fullWidth, styles.middleLeft]
+                            },
                             React.createElement(Icon, {
                                 style: primaryIconStyle,
                                 icon: icons[0],
@@ -106,43 +90,79 @@ var MultiSymbolGrid = React.createClass({
                         ),
                         React.createElement(
                             View,
-                            { style: [centered, fullWidth, styles.topRight] },
+                            { style: [column, centered, fullWidth, styles.middleRight]
+                            },
                             React.createElement(Icon, {
                                 style: secondaryIconStyle,
                                 icon: icons[1],
                                 focused: focused
                             })
                         )
-                    ),
-                    React.createElement(
+                    );
+                } else if (icons.length >= 3) {
+                    return React.createElement(
                         View,
-                        { style: row },
+                        { style: [column, styles.size] },
                         React.createElement(
                             View,
-                            { style: [centered, fullWidth, styles.bottomLeft] },
-                            React.createElement(Icon, {
-                                style: secondaryIconStyle,
-                                icon: icons[2],
-                                focused: focused
-                            })
+                            { style: row },
+                            React.createElement(
+                                View,
+                                { style: [centered, fullWidth, styles.topLeft] },
+                                React.createElement(Icon, {
+                                    style: primaryIconStyle,
+                                    icon: icons[0],
+                                    focused: focused
+                                })
+                            ),
+                            React.createElement(
+                                View,
+                                { style: [centered, fullWidth, styles.topRight] },
+                                React.createElement(Icon, {
+                                    style: secondaryIconStyle,
+                                    icon: icons[1],
+                                    focused: focused
+                                })
+                            )
                         ),
                         React.createElement(
                             View,
-                            { style: [centered, fullWidth, styles.bottomRight] },
-                            icons[3] && React.createElement(Icon, {
-                                style: secondaryIconStyle,
-                                icon: icons[3],
-                                focused: focused
-                            })
+                            { style: row },
+                            React.createElement(
+                                View,
+                                { style: [centered, fullWidth, styles.bottomLeft] },
+                                React.createElement(Icon, {
+                                    style: secondaryIconStyle,
+                                    icon: icons[2],
+                                    focused: focused
+                                })
+                            ),
+                            React.createElement(
+                                View,
+                                { style: [centered, fullWidth, styles.bottomRight] },
+                                icons[3] && React.createElement(Icon, {
+                                    style: secondaryIconStyle,
+                                    icon: icons[3],
+                                    focused: focused
+                                })
+                            )
                         )
-                    )
-                );
+                    );
+                }
             }
-        }
 
-        throw new Error("Invalid number of icons:", icons.length);
-    }
-});
+            throw new Error("Invalid number of icons:", icons.length);
+        }
+    }]);
+
+    return MultiSymbolGrid;
+}(React.Component);
+
+MultiSymbolGrid.propTypes = {
+    focused: PropTypes.bool,
+    icons: PropTypes.arrayOf(iconPropType).isRequired
+};
+
 
 var verticalInsetPx = 2;
 var horizontalInsetPx = 4;

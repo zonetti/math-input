@@ -2,9 +2,17 @@
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var PropTypes = require('prop-types');
 /**
@@ -33,79 +41,95 @@ var _require3 = require('./prop-types'),
 var _require4 = require('../consts'),
     KeyTypes = _require4.KeyTypes;
 
-var TouchableKeypadButton = React.createClass({
-    displayName: 'TouchableKeypadButton',
+var TouchableKeypadButton = function (_React$Component) {
+    _inherits(TouchableKeypadButton, _React$Component);
 
-    propTypes: {
-        borders: bordersPropType,
-        childKeyIds: PropTypes.arrayOf(keyIdPropType),
-        disabled: PropTypes.bool,
-        focused: PropTypes.bool,
-        gestureManager: PropTypes.instanceOf(GestureManager),
-        id: keyIdPropType.isRequired,
-        popoverEnabled: PropTypes.bool,
-        style: PropTypes.any,
-        type: PropTypes.oneOf(Object.keys(KeyTypes)).isRequired
-    },
+    function TouchableKeypadButton() {
+        _classCallCheck(this, TouchableKeypadButton);
 
-    shouldComponentUpdate: function shouldComponentUpdate(newProps) {
-        // We take advantage of a few different properties of our key
-        // configuration system. Namely, we know that the other props flow
-        // directly from the ID, and thus don't need to be checked. If a key has
-        // a custom style, we bail out (this should be rare).
-        return newProps.id !== this.props.id || newProps.gestureManager !== this.props.gestureManager || newProps.focused !== this.props.focused || newProps.disabled !== this.props.disabled || newProps.popoverEnabled !== this.props.popoverEnabled || newProps.type !== this.props.type || !!newProps.style;
-    },
-    componentWillUnmount: function componentWillUnmount() {
-        var _props = this.props,
-            gestureManager = _props.gestureManager,
-            id = _props.id;
-
-        gestureManager.unregisterDOMNode(id);
-    },
-    render: function render() {
-        var _props2 = this.props,
-            borders = _props2.borders,
-            childKeyIds = _props2.childKeyIds,
-            disabled = _props2.disabled,
-            gestureManager = _props2.gestureManager,
-            id = _props2.id,
-            style = _props2.style,
-            rest = _objectWithoutProperties(_props2, ['borders', 'childKeyIds', 'disabled', 'gestureManager', 'id', 'style']);
-
-        // Only bind the relevant event handlers if the key is enabled.
-
-
-        var eventHandlers = disabled ? {
-            onTouchStart: function onTouchStart(evt) {
-                return evt.preventDefault();
-            }
-        } : {
-            onTouchStart: function onTouchStart(evt) {
-                return gestureManager.onTouchStart(evt, id);
-            },
-            onTouchEnd: function onTouchEnd(evt) {
-                return gestureManager.onTouchEnd(evt);
-            },
-            onTouchMove: function onTouchMove(evt) {
-                return gestureManager.onTouchMove(evt);
-            },
-            onTouchCancel: function onTouchCancel(evt) {
-                return gestureManager.onTouchCancel(evt);
-            }
-        };
-
-        var styleWithAddons = [].concat(_toConsumableArray(Array.isArray(style) ? style : [style]), [styles.preventScrolls]);
-
-        return React.createElement(KeypadButton, _extends({
-            ref: function ref(node) {
-                return gestureManager.registerDOMNode(id, ReactDOM.findDOMNode(node), childKeyIds, borders);
-            },
-            borders: borders,
-            disabled: disabled,
-            style: styleWithAddons
-        }, eventHandlers, rest));
+        return _possibleConstructorReturn(this, (TouchableKeypadButton.__proto__ || Object.getPrototypeOf(TouchableKeypadButton)).apply(this, arguments));
     }
-});
+
+    _createClass(TouchableKeypadButton, [{
+        key: 'shouldComponentUpdate',
+        value: function shouldComponentUpdate(newProps) {
+            // We take advantage of a few different properties of our key
+            // configuration system. Namely, we know that the other props flow
+            // directly from the ID, and thus don't need to be checked. If a key has
+            // a custom style, we bail out (this should be rare).
+            return newProps.id !== this.props.id || newProps.gestureManager !== this.props.gestureManager || newProps.focused !== this.props.focused || newProps.disabled !== this.props.disabled || newProps.popoverEnabled !== this.props.popoverEnabled || newProps.type !== this.props.type || !!newProps.style;
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            var _props = this.props,
+                gestureManager = _props.gestureManager,
+                id = _props.id;
+
+            gestureManager.unregisterDOMNode(id);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _props2 = this.props,
+                borders = _props2.borders,
+                childKeyIds = _props2.childKeyIds,
+                disabled = _props2.disabled,
+                gestureManager = _props2.gestureManager,
+                id = _props2.id,
+                style = _props2.style,
+                rest = _objectWithoutProperties(_props2, ['borders', 'childKeyIds', 'disabled', 'gestureManager', 'id', 'style']);
+
+            // Only bind the relevant event handlers if the key is enabled.
+
+
+            var eventHandlers = disabled ? {
+                onTouchStart: function onTouchStart(evt) {
+                    return evt.preventDefault();
+                }
+            } : {
+                onTouchStart: function onTouchStart(evt) {
+                    return gestureManager.onTouchStart(evt, id);
+                },
+                onTouchEnd: function onTouchEnd(evt) {
+                    return gestureManager.onTouchEnd(evt);
+                },
+                onTouchMove: function onTouchMove(evt) {
+                    return gestureManager.onTouchMove(evt);
+                },
+                onTouchCancel: function onTouchCancel(evt) {
+                    return gestureManager.onTouchCancel(evt);
+                }
+            };
+
+            var styleWithAddons = [].concat(_toConsumableArray(Array.isArray(style) ? style : [style]), [styles.preventScrolls]);
+
+            return React.createElement(KeypadButton, _extends({
+                ref: function ref(node) {
+                    return gestureManager.registerDOMNode(id, ReactDOM.findDOMNode(node), childKeyIds, borders);
+                },
+                borders: borders,
+                disabled: disabled,
+                style: styleWithAddons
+            }, eventHandlers, rest));
+        }
+    }]);
+
+    return TouchableKeypadButton;
+}(React.Component);
+
+TouchableKeypadButton.propTypes = {
+    borders: bordersPropType,
+    childKeyIds: PropTypes.arrayOf(keyIdPropType),
+    disabled: PropTypes.bool,
+    focused: PropTypes.bool,
+    gestureManager: PropTypes.instanceOf(GestureManager),
+    id: keyIdPropType.isRequired,
+    popoverEnabled: PropTypes.bool,
+    style: PropTypes.any,
+    type: PropTypes.oneOf(Object.keys(KeyTypes)).isRequired
+};
+
 
 var extractProps = function extractProps(keyConfig) {
     var ariaLabel = keyConfig.ariaLabel,

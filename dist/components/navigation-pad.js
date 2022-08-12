@@ -1,6 +1,14 @@
 'use strict';
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var PropTypes = require('prop-types');
 /**
@@ -35,63 +43,75 @@ var _require5 = require('../consts'),
 
 var KeyConfigs = require('../data/key-configs');
 
-var NavigationPad = React.createClass({
-    displayName: 'NavigationPad',
+var NavigationPad = function (_React$Component) {
+    _inherits(NavigationPad, _React$Component);
 
-    propTypes: {
-        roundTopLeft: PropTypes.bool,
-        style: PropTypes.any
-    },
+    function NavigationPad() {
+        _classCallCheck(this, NavigationPad);
 
-    render: function render() {
-        // TODO(charlie): Disable the navigational arrows depending on the
-        // cursor context.
-        var _props = this.props,
-            roundTopLeft = _props.roundTopLeft,
-            style = _props.style;
-
-
-        var containerStyle = [column, centered, styles.container, roundTopLeft && roundedTopLeft].concat(_toConsumableArray(Array.isArray(style) ? style : [style]));
-
-        return React.createElement(
-            View,
-            { style: containerStyle },
-            React.createElement(
-                View,
-                { style: [row, centered] },
-                React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.UP,
-                    borders: BorderStyles.NONE,
-                    style: [styles.navigationKey, styles.topArrow]
-                })
-            ),
-            React.createElement(
-                View,
-                { style: [row, centered, stretch] },
-                React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.LEFT,
-                    borders: BorderStyles.NONE,
-                    style: [styles.navigationKey, styles.leftArrow]
-                }),
-                React.createElement(View, { style: styles.horizontalSpacer }),
-                React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.RIGHT,
-                    borders: BorderStyles.NONE,
-                    style: [styles.navigationKey, styles.rightArrow]
-                })
-            ),
-            React.createElement(
-                View,
-                { style: [row, centered] },
-                React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.DOWN,
-                    borders: BorderStyles.NONE,
-                    style: [styles.navigationKey, styles.bottomArrow]
-                })
-            )
-        );
+        return _possibleConstructorReturn(this, (NavigationPad.__proto__ || Object.getPrototypeOf(NavigationPad)).apply(this, arguments));
     }
-});
+
+    _createClass(NavigationPad, [{
+        key: 'render',
+        value: function render() {
+            // TODO(charlie): Disable the navigational arrows depending on the
+            // cursor context.
+            var _props = this.props,
+                roundTopLeft = _props.roundTopLeft,
+                style = _props.style;
+
+
+            var containerStyle = [column, centered, styles.container, roundTopLeft && roundedTopLeft].concat(_toConsumableArray(Array.isArray(style) ? style : [style]));
+
+            return React.createElement(
+                View,
+                { style: containerStyle },
+                React.createElement(
+                    View,
+                    { style: [row, centered] },
+                    React.createElement(TouchableKeypadButton, {
+                        keyConfig: KeyConfigs.UP,
+                        borders: BorderStyles.NONE,
+                        style: [styles.navigationKey, styles.topArrow]
+                    })
+                ),
+                React.createElement(
+                    View,
+                    { style: [row, centered, stretch] },
+                    React.createElement(TouchableKeypadButton, {
+                        keyConfig: KeyConfigs.LEFT,
+                        borders: BorderStyles.NONE,
+                        style: [styles.navigationKey, styles.leftArrow]
+                    }),
+                    React.createElement(View, { style: styles.horizontalSpacer }),
+                    React.createElement(TouchableKeypadButton, {
+                        keyConfig: KeyConfigs.RIGHT,
+                        borders: BorderStyles.NONE,
+                        style: [styles.navigationKey, styles.rightArrow]
+                    })
+                ),
+                React.createElement(
+                    View,
+                    { style: [row, centered] },
+                    React.createElement(TouchableKeypadButton, {
+                        keyConfig: KeyConfigs.DOWN,
+                        borders: BorderStyles.NONE,
+                        style: [styles.navigationKey, styles.bottomArrow]
+                    })
+                )
+            );
+        }
+    }]);
+
+    return NavigationPad;
+}(React.Component);
+
+NavigationPad.propTypes = {
+    roundTopLeft: PropTypes.bool,
+    style: PropTypes.any
+};
+
 
 var buttonSizePx = 48;
 var borderRadiusPx = 4;

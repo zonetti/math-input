@@ -2,8 +2,8 @@ const PropTypes = require('prop-types');
 const React = require('react');
 const {StyleSheet, css} = require('aphrodite');
 
-const Text = React.createClass({
-    propTypes: {
+class Text extends React.Component {
+    static propTypes = {
         children: PropTypes.oneOfType([
             PropTypes.arrayOf(PropTypes.node),
             PropTypes.node,
@@ -15,7 +15,7 @@ const Text = React.createClass({
         dynamicStyle: PropTypes.any,
         numberOfLines: PropTypes.number,
         style: PropTypes.any,
-    },
+    };
 
     render() {
         const {numberOfLines, style} = this.props;
@@ -29,8 +29,8 @@ const Text = React.createClass({
         return <span className={className} style={this.props.dynamicStyle}>
             {this.props.children}
         </span>;
-    },
-});
+    }
+}
 
 // https://github.com/necolas/react-native-web/blob/master/src/components/Text/index.js
 const styles = StyleSheet.create({

@@ -12,26 +12,26 @@ const {View} = require('../fake-react-native-web');
 const {row, centered} = require('./styles');
 const {iconSizeHeightPx, iconSizeWidthPx} = require('./common-style');
 
-const MathIcon = React.createClass({
-    propTypes: {
+class MathIcon extends React.Component {
+    static propTypes = {
         math: PropTypes.string.isRequired,
         style: PropTypes.any,
-    },
+    };
 
     componentDidMount() {
         this._renderMath();
-    },
+    }
 
     componentDidUpdate(prevProps) {
         if (prevProps.math !== this.props.math) {
             this._renderMath();
         }
-    },
+    }
 
-    _renderMath() {
+    _renderMath = () => {
         const {math} = this.props;
         katex.render(math, ReactDOM.findDOMNode(this));
-    },
+    };
 
     render() {
         const {style} = this.props;
@@ -45,8 +45,8 @@ const MathIcon = React.createClass({
         ];
 
         return <View style={containerStyle} />;
-    },
-});
+    }
+}
 
 const styles = StyleSheet.create({
     size: {
