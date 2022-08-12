@@ -1,6 +1,6 @@
 {
   "name": "math-input-web-support",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -39,7 +39,7 @@
     "mocha": "^2.4.5",
     "mocha-jsdom": "^1.1.0",
     "react-addons-create-fragment": "15.0.1",
-    "react-addons-css-transition-group": "15.0.1",
+    "react-addons-css-transition-group": "^15.0.1",
     "react-addons-pure-render-mixin": "15.0.1",
     "react-dom": "^15.6.2",
     "webpack": "^1.13.0"
