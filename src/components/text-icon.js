@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 /**
  * A component that renders a text-based icon.
  */
@@ -11,8 +12,8 @@ const {iconSizeHeightPx, iconSizeWidthPx} = require('./common-style');
 
 const TextIcon = React.createClass({
     propTypes: {
-        character: React.PropTypes.string.isRequired,
-        style: React.PropTypes.any,
+        character: PropTypes.string.isRequired,
+        style: PropTypes.any,
     },
 
     render() {

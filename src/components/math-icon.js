@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 /**
  * A component that renders an icon with math (via KaTeX).
  */
@@ -13,8 +14,8 @@ const {iconSizeHeightPx, iconSizeWidthPx} = require('./common-style');
 
 const MathIcon = React.createClass({
     propTypes: {
-        math: React.PropTypes.string.isRequired,
-        style: React.PropTypes.any,
+        math: PropTypes.string.isRequired,
+        style: PropTypes.any,
     },
 
     componentDidMount() {

@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 const React = require('react');
 const {Provider} = require('react-redux');
 
@@ -13,7 +14,7 @@ const createStore = require('../store');
 
 const ProvidedKeypad = React.createClass({
     propTypes: {
-        onElementMounted: React.PropTypes.func,
+        onElementMounted: PropTypes.func,
     },
 
     componentWillMount() {

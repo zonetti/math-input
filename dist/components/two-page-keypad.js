@@ -1,5 +1,6 @@
 'use strict';
 
+var PropTypes = require('prop-types');
 /**
  * A keypad with two pages of keys.
  */
@@ -34,10 +35,10 @@ var TwoPageKeypad = React.createClass({
     displayName: 'TwoPageKeypad',
 
     propTypes: {
-        currentPage: React.PropTypes.oneOf([0, 1]).isRequired,
-        leftPage: React.PropTypes.node.isRequired,
-        paginationEnabled: React.PropTypes.bool.isRequired,
-        rightPage: React.PropTypes.node.isRequired
+        currentPage: PropTypes.oneOf([0, 1]).isRequired,
+        leftPage: PropTypes.node.isRequired,
+        paginationEnabled: PropTypes.bool.isRequired,
+        rightPage: PropTypes.node.isRequired
     },
 
     render: function render() {

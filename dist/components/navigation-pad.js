@@ -2,6 +2,7 @@
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+var PropTypes = require('prop-types');
 /**
  * A component that renders a navigation pad, which consists of an arrow for
  * each possible direction.
@@ -38,8 +39,8 @@ var NavigationPad = React.createClass({
     displayName: 'NavigationPad',
 
     propTypes: {
-        roundTopLeft: React.PropTypes.bool,
-        style: React.PropTypes.any
+        roundTopLeft: PropTypes.bool,
+        style: PropTypes.any
     },
 
     render: function render() {

@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 /**
  * A component that renders and animates the selection state effect effect.
  */
@@ -14,11 +15,11 @@ const zIndexes = require('./z-indexes');
 
 const Echo = React.createClass({
     propTypes: {
-        animationDurationMs: React.PropTypes.number.isRequired,
+        animationDurationMs: PropTypes.number.isRequired,
         borders: bordersPropType,
         id: keyIdPropType.isRequired,
         initialBounds: boundingBoxPropType.isRequired,
-        onAnimationFinish: React.PropTypes.func.isRequired,
+        onAnimationFinish: PropTypes.func.isRequired,
     },
 
     componentDidMount() {
@@ -60,8 +61,8 @@ const Echo = React.createClass({
 
 const EchoManager = React.createClass({
     propTypes: {
-        echoes: React.PropTypes.arrayOf(echoPropType),
-        onAnimationFinish: React.PropTypes.func.isRequired,
+        echoes: PropTypes.arrayOf(echoPropType),
+        onAnimationFinish: PropTypes.func.isRequired,
     },
 
     _animationConfigForType(animationType) {

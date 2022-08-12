@@ -2,6 +2,7 @@
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+var PropTypes = require('prop-types');
 /**
  * A component that renders an icon for a symbol with the given name.
  */
@@ -32,12 +33,12 @@ var Icon = React.createClass({
     displayName: 'Icon',
 
     propTypes: {
-        focused: React.PropTypes.bool,
+        focused: PropTypes.bool,
         icon: iconPropType.isRequired,
         // An Aphrodite style object, or an array of Aphrodite style objects.
         // Note that custom styles will only be applied to text and math icons
         // (and not SVG icons).
-        style: React.PropTypes.any
+        style: PropTypes.any
     },
 
     mixins: [PureRenderMixin],

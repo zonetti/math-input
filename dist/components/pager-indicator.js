@@ -1,5 +1,6 @@
 'use strict';
 
+var PropTypes = require('prop-types');
 /**
  * A component that renders a view pager indicator, with a circular icon for
  * each page.
@@ -22,8 +23,8 @@ var PagerIcon = React.createClass({
     displayName: 'PagerIcon',
 
     propTypes: {
-        active: React.PropTypes.bool,
-        radiusPx: React.PropTypes.number
+        active: PropTypes.bool,
+        radiusPx: PropTypes.number
     },
 
     getDefaultProps: function getDefaultProps() {
@@ -57,8 +58,8 @@ var PagerIndicator = React.createClass({
     displayName: 'PagerIndicator',
 
     propTypes: {
-        currentPage: React.PropTypes.number.isRequired,
-        numPages: React.PropTypes.number.isRequired
+        currentPage: PropTypes.number.isRequired,
+        numPages: PropTypes.number.isRequired
     },
 
     render: function render() {

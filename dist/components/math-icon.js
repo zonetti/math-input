@@ -2,6 +2,7 @@
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+var PropTypes = require('prop-types');
 /**
  * A component that renders an icon with math (via KaTeX).
  */
@@ -29,8 +30,8 @@ var MathIcon = React.createClass({
     displayName: 'MathIcon',
 
     propTypes: {
-        math: React.PropTypes.string.isRequired,
-        style: React.PropTypes.any
+        math: PropTypes.string.isRequired,
+        style: PropTypes.any
     },
 
     componentDidMount: function componentDidMount() {

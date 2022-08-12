@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 /**
  * A grid of symbols, rendered as text and positioned based on the number of
  * symbols provided. Up to four symbols will be shown.
@@ -15,8 +16,8 @@ const {iconSizeHeightPx, iconSizeWidthPx} = require('./common-style');
 
 const MultiSymbolGrid = React.createClass({
     propTypes: {
-        focused: React.PropTypes.bool,
-        icons: React.PropTypes.arrayOf(iconPropType).isRequired,
+        focused: PropTypes.bool,
+        icons: PropTypes.arrayOf(iconPropType).isRequired,
     },
 
     render() {

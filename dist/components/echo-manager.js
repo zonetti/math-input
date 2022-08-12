@@ -2,6 +2,7 @@
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var PropTypes = require('prop-types');
 /**
  * A component that renders and animates the selection state effect effect.
  */
@@ -27,11 +28,11 @@ var Echo = React.createClass({
     displayName: 'Echo',
 
     propTypes: {
-        animationDurationMs: React.PropTypes.number.isRequired,
+        animationDurationMs: PropTypes.number.isRequired,
         borders: bordersPropType,
         id: keyIdPropType.isRequired,
         initialBounds: boundingBoxPropType.isRequired,
-        onAnimationFinish: React.PropTypes.func.isRequired
+        onAnimationFinish: PropTypes.func.isRequired
     },
 
     componentDidMount: function componentDidMount() {
@@ -84,8 +85,8 @@ var EchoManager = React.createClass({
     displayName: 'EchoManager',
 
     propTypes: {
-        echoes: React.PropTypes.arrayOf(echoPropType),
-        onAnimationFinish: React.PropTypes.func.isRequired
+        echoes: PropTypes.arrayOf(echoPropType),
+        onAnimationFinish: PropTypes.func.isRequired
     },
 
     _animationConfigForType: function _animationConfigForType(animationType) {

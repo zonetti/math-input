@@ -4,6 +4,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
+var PropTypes = require('prop-types');
 /**
  * A keypad button that displays an arbitrary number of symbols, with no
  * 'default' symbol.
@@ -27,7 +28,7 @@ var ManyKeypadButton = React.createClass({
     displayName: 'ManyKeypadButton',
 
     propTypes: {
-        keys: React.PropTypes.arrayOf(keyIdPropType).isRequired
+        keys: PropTypes.arrayOf(keyIdPropType).isRequired
     },
 
     render: function render() {

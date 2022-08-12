@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 /**
  * A small triangular decal to sit in the corner of a parent component.
  */
@@ -10,7 +11,7 @@ const {gray25} = require('./common-style');
 
 const CornerDecal = React.createClass({
     propTypes: {
-        style: React.PropTypes.any,
+        style: PropTypes.any,
     },
 
     render() {

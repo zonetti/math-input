@@ -2,6 +2,7 @@
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var PropTypes = require('prop-types');
 /**
  * Renders the green tear-shaped handle under the cursor.
  */
@@ -25,14 +26,14 @@ var CursorHandle = React.createClass({
     displayName: 'CursorHandle',
 
     propTypes: {
-        animateIntoPosition: React.PropTypes.bool,
-        onTouchCancel: React.PropTypes.func.isRequired,
-        onTouchEnd: React.PropTypes.func.isRequired,
-        onTouchMove: React.PropTypes.func.isRequired,
-        onTouchStart: React.PropTypes.func.isRequired,
-        visible: React.PropTypes.bool.isRequired,
-        x: React.PropTypes.number.isRequired,
-        y: React.PropTypes.number.isRequired
+        animateIntoPosition: PropTypes.bool,
+        onTouchCancel: PropTypes.func.isRequired,
+        onTouchEnd: PropTypes.func.isRequired,
+        onTouchMove: PropTypes.func.isRequired,
+        onTouchStart: PropTypes.func.isRequired,
+        visible: PropTypes.bool.isRequired,
+        x: PropTypes.number.isRequired,
+        y: PropTypes.number.isRequired
     },
 
     getDefaultProps: function getDefaultProps() {

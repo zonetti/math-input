@@ -1,5 +1,6 @@
 'use strict';
 
+var PropTypes = require('prop-types');
 /**
  * React PropTypes that may be shared between components.
  */
@@ -16,63 +17,63 @@ var _require = require('../consts'),
     KeyTypes = _require.KeyTypes,
     KeypadTypes = _require.KeypadTypes;
 
-var iconPropType = React.PropTypes.shape({
-    type: React.PropTypes.oneOf(Object.keys(IconTypes)).isRequired,
-    data: React.PropTypes.string.isRequired
+var iconPropType = PropTypes.shape({
+    type: PropTypes.oneOf(Object.keys(IconTypes)).isRequired,
+    data: PropTypes.string.isRequired
 });
 
-var keyIdPropType = React.PropTypes.oneOf(Object.keys(KeyConfigs));
+var keyIdPropType = PropTypes.oneOf(Object.keys(KeyConfigs));
 
-var keyConfigPropType = React.PropTypes.shape({
-    ariaLabel: React.PropTypes.string,
+var keyConfigPropType = PropTypes.shape({
+    ariaLabel: PropTypes.string,
     id: keyIdPropType.isRequired,
-    type: React.PropTypes.oneOf(Object.keys(KeyTypes)).isRequired,
-    childKeyIds: React.PropTypes.arrayOf(keyIdPropType),
+    type: PropTypes.oneOf(Object.keys(KeyTypes)).isRequired,
+    childKeyIds: PropTypes.arrayOf(keyIdPropType),
     icon: iconPropType.isRequired
 });
 
-var keypadConfigurationPropType = React.PropTypes.shape({
-    keypadType: React.PropTypes.oneOf(Object.keys(KeypadTypes)).isRequired,
-    extraKeys: React.PropTypes.arrayOf(keyIdPropType)
+var keypadConfigurationPropType = PropTypes.shape({
+    keypadType: PropTypes.oneOf(Object.keys(KeypadTypes)).isRequired,
+    extraKeys: PropTypes.arrayOf(keyIdPropType)
 });
 
 // NOTE(charlie): This is a React element.
-var keypadElementPropType = React.PropTypes.shape({
-    activate: React.PropTypes.func.isRequired,
-    dismiss: React.PropTypes.func.isRequired,
-    configure: React.PropTypes.func.isRequired,
-    setCursor: React.PropTypes.func.isRequired,
-    setKeyHandler: React.PropTypes.func.isRequired
+var keypadElementPropType = PropTypes.shape({
+    activate: PropTypes.func.isRequired,
+    dismiss: PropTypes.func.isRequired,
+    configure: PropTypes.func.isRequired,
+    setCursor: PropTypes.func.isRequired,
+    setKeyHandler: PropTypes.func.isRequired
 });
 
-var bordersPropType = React.PropTypes.arrayOf(React.PropTypes.oneOf(Object.keys(BorderDirections)));
+var bordersPropType = PropTypes.arrayOf(PropTypes.oneOf(Object.keys(BorderDirections)));
 
-var boundingBoxPropType = React.PropTypes.shape({
-    height: React.PropTypes.number,
-    width: React.PropTypes.number,
-    top: React.PropTypes.number,
-    right: React.PropTypes.number,
-    bottom: React.PropTypes.number,
-    left: React.PropTypes.number
+var boundingBoxPropType = PropTypes.shape({
+    height: PropTypes.number,
+    width: PropTypes.number,
+    top: PropTypes.number,
+    right: PropTypes.number,
+    bottom: PropTypes.number,
+    left: PropTypes.number
 });
 
-var echoPropType = React.PropTypes.shape({
-    animationId: React.PropTypes.string.isRequired,
-    animationType: React.PropTypes.oneOf(Object.keys(EchoAnimationTypes)).isRequired,
+var echoPropType = PropTypes.shape({
+    animationId: PropTypes.string.isRequired,
+    animationType: PropTypes.oneOf(Object.keys(EchoAnimationTypes)).isRequired,
     borders: bordersPropType,
     id: keyIdPropType.isRequired,
     initialBounds: boundingBoxPropType.isRequired
 });
 
-var cursorContextPropType = React.PropTypes.oneOf(Object.keys(CursorContexts));
+var cursorContextPropType = PropTypes.oneOf(Object.keys(CursorContexts));
 
-var popoverPropType = React.PropTypes.shape({
+var popoverPropType = PropTypes.shape({
     parentId: keyIdPropType.isRequired,
     bounds: boundingBoxPropType.isRequired,
-    childKeyIds: React.PropTypes.arrayOf(keyIdPropType).isRequired
+    childKeyIds: PropTypes.arrayOf(keyIdPropType).isRequired
 });
 
-var childrenPropType = React.PropTypes.oneOfType([React.PropTypes.arrayOf(React.PropTypes.node), React.PropTypes.node]);
+var childrenPropType = PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]);
 
 module.exports = {
     keyConfigPropType: keyConfigPropType,

@@ -4,6 +4,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+var PropTypes = require('prop-types');
 var React = require('react');
 
 var _require = require('react-redux'),
@@ -45,17 +46,17 @@ var KeypadContainer = React.createClass({
     displayName: 'KeypadContainer',
 
     propTypes: {
-        active: React.PropTypes.bool,
-        extraKeys: React.PropTypes.arrayOf(keyIdPropType),
-        keypadType: React.PropTypes.oneOf(Object.keys(KeypadTypes)).isRequired,
-        layoutMode: React.PropTypes.oneOf(Object.keys(LayoutModes)).isRequired,
-        navigationPadEnabled: React.PropTypes.bool.isRequired,
-        onDismiss: React.PropTypes.func,
+        active: PropTypes.bool,
+        extraKeys: PropTypes.arrayOf(keyIdPropType),
+        keypadType: PropTypes.oneOf(Object.keys(KeypadTypes)).isRequired,
+        layoutMode: PropTypes.oneOf(Object.keys(LayoutModes)).isRequired,
+        navigationPadEnabled: PropTypes.bool.isRequired,
+        onDismiss: PropTypes.func,
         // A callback that should be triggered with the root React element on
         // mount.
-        onElementMounted: React.PropTypes.func,
-        onPageSizeChange: React.PropTypes.func.isRequired,
-        style: React.PropTypes.any
+        onElementMounted: PropTypes.func,
+        onPageSizeChange: PropTypes.func.isRequired,
+        style: PropTypes.any
     },
 
     getInitialState: function getInitialState() {

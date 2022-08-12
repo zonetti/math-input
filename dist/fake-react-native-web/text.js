@@ -2,6 +2,7 @@
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+var PropTypes = require('prop-types');
 var React = require('react');
 
 var _require = require('aphrodite'),
@@ -12,14 +13,14 @@ var Text = React.createClass({
     displayName: 'Text',
 
     propTypes: {
-        children: React.PropTypes.oneOfType([React.PropTypes.arrayOf(React.PropTypes.node), React.PropTypes.node]),
+        children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
         // The `dynamicStyle` prop is provided for animating dynamic
         // properties, as creating Aphrodite StyleSheets in animation loops is
         // expensive. `dynamicStyle` should be a raw style object, rather than
         // a StyleSheet.
-        dynamicStyle: React.PropTypes.any,
-        numberOfLines: React.PropTypes.number,
-        style: React.PropTypes.any
+        dynamicStyle: PropTypes.any,
+        numberOfLines: PropTypes.number,
+        style: PropTypes.any
     },
 
     render: function render() {

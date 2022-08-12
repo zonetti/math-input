@@ -2,6 +2,7 @@
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var PropTypes = require('prop-types');
 /**
  * A view pager that allows for pagination in the horizontal direction.
  * Right now, there are a number of limitations built into the system. Namely:
@@ -36,10 +37,10 @@ var ViewPager = React.createClass({
 
     propTypes: {
         // Whether the page should animate to its next specified position.
-        animateToPosition: React.PropTypes.bool,
+        animateToPosition: PropTypes.bool,
         children: childrenPropType,
-        pageWidthPx: React.PropTypes.number.isRequired,
-        translateX: React.PropTypes.number.isRequired
+        pageWidthPx: PropTypes.number.isRequired,
+        translateX: PropTypes.number.isRequired
     },
 
     getInitialState: function getInitialState() {

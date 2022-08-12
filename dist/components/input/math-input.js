@@ -6,6 +6,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+var PropTypes = require('prop-types');
 /* globals i18n */
 
 var React = require('react');
@@ -52,16 +53,16 @@ var MathInput = React.createClass({
         //   (2) Scroll the input into view, if it would otherwise be obscured
         //       by the keypad on focus.
         keypadElement: keypadElementPropType,
-        onBlur: React.PropTypes.func,
-        onChange: React.PropTypes.func.isRequired,
-        onFocus: React.PropTypes.func,
+        onBlur: PropTypes.func,
+        onChange: PropTypes.func.isRequired,
+        onFocus: PropTypes.func,
         // Whether the input should be scrollable. This is typically only
         // necessary when a fixed width has been provided through the `style`
         // prop.
-        scrollable: React.PropTypes.bool,
+        scrollable: PropTypes.bool,
         // An extra, vanilla style object, to be applied to the math input.
-        style: React.PropTypes.any,
-        value: React.PropTypes.string
+        style: PropTypes.any,
+        value: PropTypes.string
     },
 
     getDefaultProps: function getDefaultProps() {

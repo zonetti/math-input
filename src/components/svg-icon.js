@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 /**
  * A component that renders a single SVG icon.
  */
@@ -9,8 +10,8 @@ const Iconography = require('./iconography');
 
 const SvgIcon = React.createClass({
     propTypes: {
-        color: React.PropTypes.string.isRequired,
-        name: React.PropTypes.string.isRequired,
+        color: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
     },
 
     componentDidMount() {

@@ -1,5 +1,6 @@
 'use strict';
 
+var PropTypes = require('prop-types');
 /**
  * A keypad that includes the digits, as well as the symbols required to deal
  * with fractions, decimals, and percents.
@@ -36,9 +37,9 @@ var FractionKeypad = React.createClass({
 
     propTypes: {
         cursorContext: cursorContextPropType.isRequired,
-        dynamicJumpOut: React.PropTypes.bool,
-        roundTopLeft: React.PropTypes.bool,
-        roundTopRight: React.PropTypes.bool
+        dynamicJumpOut: PropTypes.bool,
+        roundTopLeft: PropTypes.bool,
+        roundTopRight: PropTypes.bool
     },
 
     statics: {

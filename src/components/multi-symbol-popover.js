@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 /**
  * A popover that renders a set of keys floating above the page.
  */
@@ -12,7 +13,7 @@ const zIndexes = require('./z-indexes');
 
 const MultiSymbolPopover = React.createClass({
     propTypes: {
-        keys: React.PropTypes.arrayOf(keyConfigPropType),
+        keys: PropTypes.arrayOf(keyConfigPropType),
     },
 
     render() {

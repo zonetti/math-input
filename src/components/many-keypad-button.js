@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 /**
  * A keypad button that displays an arbitrary number of symbols, with no
  * 'default' symbol.
@@ -15,7 +16,7 @@ const {keyIdPropType} = require('./prop-types');
 
 const ManyKeypadButton = React.createClass({
     propTypes: {
-        keys: React.PropTypes.arrayOf(keyIdPropType).isRequired,
+        keys: PropTypes.arrayOf(keyIdPropType).isRequired,
     },
 
     render() {

@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 /**
  * A component that renders and animates the popovers that appear over the
  * multi-functional keys.
@@ -24,7 +25,7 @@ const animationDurationMs = 200;
 const PopoverContainer = React.createClass({
     propTypes: {
         bounds: boundingBoxPropType.isRequired,
-        childKeys: React.PropTypes.arrayOf(keyConfigPropType).isRequired,
+        childKeys: PropTypes.arrayOf(keyConfigPropType).isRequired,
     },
 
     render() {

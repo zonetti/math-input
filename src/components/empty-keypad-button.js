@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 /**
  * A keypad button containing no symbols and triggering no actions on click.
  */
@@ -11,7 +12,7 @@ const KeypadButton = require('./keypad-button');
 
 const EmptyKeypadButton = React.createClass({
     propTypes: {
-        gestureManager: React.PropTypes.instanceOf(GestureManager),
+        gestureManager: PropTypes.instanceOf(GestureManager),
     },
 
     render() {

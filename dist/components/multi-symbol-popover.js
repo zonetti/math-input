@@ -1,5 +1,6 @@
 'use strict';
 
+var PropTypes = require('prop-types');
 /**
  * A popover that renders a set of keys floating above the page.
  */
@@ -24,7 +25,7 @@ var MultiSymbolPopover = React.createClass({
     displayName: 'MultiSymbolPopover',
 
     propTypes: {
-        keys: React.PropTypes.arrayOf(keyConfigPropType)
+        keys: PropTypes.arrayOf(keyConfigPropType)
     },
 
     render: function render() {

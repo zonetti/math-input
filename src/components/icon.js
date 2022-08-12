@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 /**
  * A component that renders an icon for a symbol with the given name.
  */
@@ -18,12 +19,12 @@ const unfocusedColor = gray25;
 
 const Icon = React.createClass({
     propTypes: {
-        focused: React.PropTypes.bool,
+        focused: PropTypes.bool,
         icon: iconPropType.isRequired,
         // An Aphrodite style object, or an array of Aphrodite style objects.
         // Note that custom styles will only be applied to text and math icons
         // (and not SVG icons).
-        style: React.PropTypes.any,
+        style: PropTypes.any,
     },
 
     mixins: [PureRenderMixin],

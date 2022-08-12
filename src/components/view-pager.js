@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 /**
  * A view pager that allows for pagination in the horizontal direction.
  * Right now, there are a number of limitations built into the system. Namely:
@@ -21,10 +22,10 @@ const {
 const ViewPager = React.createClass({
     propTypes: {
         // Whether the page should animate to its next specified position.
-        animateToPosition: React.PropTypes.bool,
+        animateToPosition: PropTypes.bool,
         children: childrenPropType,
-        pageWidthPx: React.PropTypes.number.isRequired,
-        translateX: React.PropTypes.number.isRequired,
+        pageWidthPx: PropTypes.number.isRequired,
+        translateX: PropTypes.number.isRequired,
     },
 
     getInitialState() {

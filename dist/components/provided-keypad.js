@@ -4,6 +4,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
+var PropTypes = require('prop-types');
 var React = require('react');
 
 var _require = require('react-redux'),
@@ -24,7 +25,7 @@ var ProvidedKeypad = React.createClass({
     displayName: 'ProvidedKeypad',
 
     propTypes: {
-        onElementMounted: React.PropTypes.func
+        onElementMounted: PropTypes.func
     },
 
     componentWillMount: function componentWillMount() {

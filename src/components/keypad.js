@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 /**
  * A keypad component that acts as a container for rows or columns of buttons,
  * and manages the rendering of echo animations on top of those buttons.
@@ -17,15 +18,15 @@ const Keypad = React.createClass({
     propTypes: {
         // Whether the keypad is active, i.e., whether it should be rendered as
         // visible or invisible.
-        active: React.PropTypes.bool,
-        children: React.PropTypes.oneOfType([
-            React.PropTypes.arrayOf(React.PropTypes.node),
-            React.PropTypes.node,
+        active: PropTypes.bool,
+        children: PropTypes.oneOfType([
+            PropTypes.arrayOf(PropTypes.node),
+            PropTypes.node,
         ]),
-        echoes: React.PropTypes.arrayOf(echoPropType).isRequired,
+        echoes: PropTypes.arrayOf(echoPropType).isRequired,
         popover: popoverPropType,
-        removeEcho: React.PropTypes.func.isRequired,
-        style: React.PropTypes.any,
+        removeEcho: PropTypes.func.isRequired,
+        style: PropTypes.any,
     },
 
     componentDidMount() {

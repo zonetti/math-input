@@ -4,6 +4,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
+var PropTypes = require('prop-types');
 /**
  * A keypad button containing no symbols and triggering no actions on click.
  */
@@ -21,7 +22,7 @@ var EmptyKeypadButton = React.createClass({
     displayName: 'EmptyKeypadButton',
 
     propTypes: {
-        gestureManager: React.PropTypes.instanceOf(GestureManager)
+        gestureManager: PropTypes.instanceOf(GestureManager)
     },
 
     render: function render() {
