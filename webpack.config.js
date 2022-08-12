@@ -11,7 +11,7 @@ module.exports = {
             'redux',
             'aphrodite',
             // TODO(kevinb) create a build config for test code
-            // 'mathquill',
+            'mathquill',
         ],
     },
     output: {

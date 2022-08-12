@@ -18,8 +18,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var $ = require('jquery');
 // TODO(kevinb) allow test code to use const MathQuill = require('mathquill');
-// const MathQuill = window.MathQuill;
-var MathQuill = require('mathquill');
+var MathQuill = window.MathQuill;
+// const MathQuill = require('mathquill');
 
 var Keys = require('../../data/keys');
 var CursorContexts = require('./cursor-contexts');
