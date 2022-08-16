@@ -35,9 +35,6 @@ describe('MathQuill', () => {
             jsdom.env({
                 html: '<html><body></body></html>',
                 scripts: [
-                    // jQuery is hard dep of MathQuill
-                    'http://code.jquery.com/jquery.js',
-                    'mathquill/mathquill.js',
                     'lib/icu.js',
                 ],
                 done: function(err, win) {

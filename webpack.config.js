@@ -10,8 +10,9 @@ module.exports = {
             'react-redux',
             'redux',
             'aphrodite',
+            'mathquill-webpack',
             // TODO(kevinb) create a build config for test code
-            'mathquill',
+            //'mathquill',
         ],
     },
     output: {
@@ -30,23 +31,5 @@ module.exports = {
                 warnings: false,
             },
         }),
-    ],
-    resolve: {
-        extensions: ['', '.js', '.jsx'],
-        alias: {
-            // allows us to do `const MathQuill = require('mathquill');`
-            mathquill: path.join(__dirname, "node_modules/mathquill/build/mathquill.js"),
-        },
-    },
-    module: {
-        loaders: [{
-            test: /\.jsx?$/,
-            loaders: ['babel'],
-            exclude: /(node_modules|mathquill)/,
-        }, {
-            // appends `module.exports = window.MathQuill` to mathquill.js
-            test: /[\/]mathquill\.js$/,
-            loaders: ["exports?window.MathQuill", "imports?window.jQuery=jquery"],
-        }],
-    }
+    ]
 };

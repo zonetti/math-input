@@ -1,10 +1,10 @@
 {
   "name": "math-input-web-support",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "test": "mocha test/test_*.js --compilers js:babel-register",
+    "test": "mocha test/test_*.js --compilers js:babel-register --bail",
     "watch_test": "mocha test/test_spec.js --watch --compilers js:babel-register",
     "watch": "webpack --config webpack.config.dev.js --watch",
     "build": "babel src -d dist --copy-files"
@@ -16,14 +16,14 @@
     "create-react-class": "^15.7.0",
     "jquery": "^1.12.2",
     "katex": "^0.9.0-alpha1",
-    "mathquill": "^0.10.1",
+    "mathquill-commonjs": "^0.10.1",
     "performance-now": "^0.2.0",
     "prop-types": "^15.8.1",
     "react": "^15.6.2",
-    "react-redux": "^4.4.5",
     "react-addons-create-fragment": "15.0.1",
     "react-addons-css-transition-group": "^15.0.1",
     "react-addons-pure-render-mixin": "15.0.1",
+    "react-redux": "^4.4.5",
     "redux": "^3.5.0"
   },
   "devDependencies": {
