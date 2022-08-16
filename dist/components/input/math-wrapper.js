@@ -16,9 +16,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * from MathQuill changes.
  */
 
-var $ = require('jquery');
-// TODO(kevinb) allow test code to use const MathQuill = require('mathquill');
-//const MathQuill = window.MathQuill;
 var MathQuill = require('mathquill-commonjs');
 
 var Keys = require('../../data/keys');
