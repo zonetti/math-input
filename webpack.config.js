@@ -10,7 +10,7 @@ module.exports = {
             'react-redux',
             'redux',
             'aphrodite',
-            'mathquill-webpack',
+            'mathquill-commonjs',
             // TODO(kevinb) create a build config for test code
             //'mathquill',
         ],
