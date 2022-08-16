@@ -4,6 +4,7 @@
  * from MathQuill changes.
  */
 
+const $ = require('jquery');
 const MathQuill = require('mathquill-commonjs');
 
 const Keys = require('../../data/keys');
