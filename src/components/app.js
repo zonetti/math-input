@@ -31,6 +31,10 @@ class App extends React.Component {
         }
     };
 
+    focus = () => {
+        this.keypadInput.focus(true);
+    }
+
     render() {
         return <View>
             <div

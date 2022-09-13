@@ -352,7 +352,10 @@ class MathInput extends React.Component {
       }
     };
 
-    focus = () => {
+    focus = (waitUntilPossible = false) => {
+        if (!this.props.keypadElement && waitUntilPossible) {
+            return setTimeout(() => this.focus(true))
+        }
         window.addEventListener('keydown', this._forwardGlobalKeydown);
         window.addEventListener('keypress', this._forwardGlobalKeypress);
         // Pass this component's handleKey method to the keypad so it can call

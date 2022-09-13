@@ -182,6 +182,13 @@ var MathInput = function (_React$Component) {
                 hideCursor();
             }
         }, _this.focus = function () {
+            var waitUntilPossible = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+            if (!_this.props.keypadElement && waitUntilPossible) {
+                return setTimeout(function () {
+                    return _this.focus(true);
+                });
+            }
             window.addEventListener('keydown', _this._forwardGlobalKeydown);
             window.addEventListener('keypress', _this._forwardGlobalKeypress);
             // Pass this component's handleKey method to the keypad so it can call

@@ -41,6 +41,8 @@ var App = function (_React$Component) {
             if (_this.props.onChange) {
                 _this.props.onChange(value);
             }
+        }, _this.focus = function () {
+            _this.keypadInput.focus(true);
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
