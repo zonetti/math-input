@@ -3,6 +3,7 @@
   "version": "0.2.5",
   "description": "",
   "main": "dist/index.js",
+  "files": ["dist"],
   "scripts": {
     "test": "mocha test/test_*.js --compilers js:babel-register --bail",
     "watch_test": "mocha test/test_spec.js --watch --compilers js:babel-register",
