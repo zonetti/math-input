@@ -42,7 +42,7 @@ class App extends React.Component {
                     marginTop: 10,
                     marginLeft: 20,
                     marginRight: 20,
-                    marginBottom: 40,
+                    marginBottom: 15,
                 }}
             >
                 <KeypadInput
