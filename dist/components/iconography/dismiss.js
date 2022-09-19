@@ -15,7 +15,7 @@ var Dismiss = function Dismiss() {
       "g",
       { fill: "none", fillRule: "evenodd" },
       React.createElement("path", { fill: "none", d: "M0 0h48v48H0z" }),
-      React.createElement("path", { d: "M18 21l6 6 6-6", strokeLinecap: "round", strokeWidth: "2", stroke: "#0B43BF", strokeLinejoin: "round" })
+      React.createElement("path", { d: "M18 21l6 6 6-6", strokeLinecap: "round", strokeWidth: "2", stroke: "#71B307", strokeLinejoin: "round" })
     )
   );
 };
