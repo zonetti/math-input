@@ -7,7 +7,7 @@
 var gray85 = '#D6D8DA';
 
 module.exports = {
-    brightGreen: '#78C008',
+    brightGreen: '#0B43BF',
     gray17: '#21242C',
     gray25: '#3B3E40',
     gray68: '#888D93',
