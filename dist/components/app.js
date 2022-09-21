@@ -9,6 +9,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var React = require('react');
+var ReactDOM = require("react-dom");
 
 var _require = require('../fake-react-native-web'),
     View = _require.View;
@@ -95,13 +96,13 @@ var App = function (_React$Component) {
                         }
                     })
                 ),
-                React.createElement(Keypad, {
+                ReactDOM.createPortal(React.createElement(Keypad, {
                     onElementMounted: function onElementMounted(node) {
                         if (node && !_this3.state.keypadElement) {
                             _this3.setState({ keypadElement: node });
                         }
                     }
-                })
+                }), document.body)
             );
         }
     }]);
