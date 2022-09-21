@@ -1,4 +1,5 @@
 const React = require('react');
+const ReactDOM = require("react-dom");
 
 const { View } = require('../fake-react-native-web');
 const { components } = require('../index');
@@ -54,13 +55,16 @@ class App extends React.Component {
                     ref={(element) => this.keypadInput = element}
                 />
             </div>
-            <Keypad
-                onElementMounted={node => {
-                    if (node && !this.state.keypadElement) {
-                        this.setState({keypadElement: node});
-                    }
+            {ReactDOM.createPortal(
+              <Keypad
+                onElementMounted={(node) => {
+                  if (node && !this.state.keypadElement) {
+                    this.setState({ keypadElement: node });
+                  }
                 }}
-            />
+              />,
+              document.body
+            )}
         </View>;
     }
 }
