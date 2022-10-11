@@ -28,6 +28,7 @@ const rectContainsXY = (bounds, x, y) => {
 
 class MathInput extends React.Component {
     static propTypes = {
+        borderColor: PropTypes.string,
         // The React element node associated with the keypad that will send
         // key-press events to this input. If provided, this can be used to:
         //   (1) Avoid blurring the input, on user interaction with the keypad.
@@ -786,7 +787,7 @@ class MathInput extends React.Component {
             ...inlineStyles.innerContainer,
             borderWidth: borderWidthPx,
             ...padding,
-            ...(focused ? {borderColor: brightGreen} : {}),
+            ...(focused ? {borderColor: this.props.borderColor || brightGreen} : {}),
             ...style,
         };
 
