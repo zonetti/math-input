@@ -821,7 +821,7 @@ var MathInput = function (_React$Component) {
 
             var innerStyle = _extends({}, inlineStyles.innerContainer, {
                 borderWidth: borderWidthPx
-            }, padding, focused ? { borderColor: brightGreen } : {}, style);
+            }, padding, focused ? { borderColor: this.props.borderColor || brightGreen } : {}, style);
 
             return React.createElement(
                 View,
@@ -860,6 +860,7 @@ var MathInput = function (_React$Component) {
 }(React.Component);
 
 MathInput.propTypes = {
+    borderColor: PropTypes.string,
     // The React element node associated with the keypad that will send
     // key-press events to this input. If provided, this can be used to:
     //   (1) Avoid blurring the input, on user interaction with the keypad.

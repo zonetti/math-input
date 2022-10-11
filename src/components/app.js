@@ -47,6 +47,7 @@ class App extends React.Component {
                 }}
             >
                 <KeypadInput
+                    borderColor={this.props.borderColor}
                     value={this.props.value}
                     keypadElement={this.state.keypadElement}
                     onChange={this.onChange}

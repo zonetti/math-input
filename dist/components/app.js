@@ -82,6 +82,7 @@ var App = function (_React$Component) {
                         }
                     },
                     React.createElement(KeypadInput, {
+                        borderColor: this.props.borderColor,
                         value: this.props.value,
                         keypadElement: this.state.keypadElement,
                         onChange: this.onChange,
