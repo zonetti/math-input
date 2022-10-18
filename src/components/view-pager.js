@@ -47,7 +47,7 @@ class ViewPager extends React.Component {
             animationDurationMs = 0;
         }
         this.setState({
-            animationDurationMs,
+            animationDurationMs: 100,
         });
     }
 
@@ -82,14 +82,25 @@ class ViewPager extends React.Component {
             width: pageWidthPx,
         };
 
-        return <View style={pagerStyle} dynamicStyle={dynamicPagerStyle}>
-            <View dynamicStyle={dynamicPageStyle}>
-                {children[0]}
+        return (
+            <View style={pagerStyle} dynamicStyle={dynamicPagerStyle}>
+                {children.map((pageView, index) => {
+                    if (index < children.length - 1) {
+                        return (
+                            <View dynamicStyle={dynamicPageStyle}>
+                                {pageView}
+                            </View>
+                        );
+                    } else {
+                        return (
+                            <View style={styles.rightPage} dynamicStyle={dynamicPageStyle}>
+                                {pageView}
+                            </View>
+                        );
+                    }
+                })}
             </View>
-            <View style={styles.rightPage} dynamicStyle={dynamicPageStyle}>
-                {children[1]}
-            </View>
-        </View>;
+        );
     }
 }
 
@@ -101,7 +112,7 @@ const styles = StyleSheet.create({
         // pages. The exact value here isn't super important, as long as it's
         // large enough to accommodate for two pages (so, 200%) and some
         // separators.
-        maxWidth: '250%',
+        maxWidth: '500%',
     },
 
     rightPage: {

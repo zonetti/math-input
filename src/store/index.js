@@ -154,10 +154,10 @@ const createStore = () => {
                 const keyConfig = KeyConfigs[action.key];
 
                 // Reset the keypad page if the user performs a math operation.
-                if (keyConfig.type === KeyTypes.VALUE ||
-                        keyConfig.type === KeyTypes.OPERATOR) {
-                    return pagerReducer(state, {type: 'ResetKeypadPage'});
-                }
+                // if (keyConfig.type === KeyTypes.VALUE ||
+                //         keyConfig.type === KeyTypes.OPERATOR) {
+                //     return pagerReducer(state, {type: 'ResetKeypadPage'});
+                // }
                 return state;
 
             case 'ResetKeypadPage':
@@ -406,8 +406,8 @@ const createStore = () => {
         // Using that information, make some decisions (or assumptions)
         // about the resulting layout.
         const navigationPadEnabled = deviceType === DeviceTypes.TABLET;
-        const paginationEnabled = deviceType === DeviceTypes.PHONE &&
-            deviceOrientation === DeviceOrientations.PORTRAIT;
+        const paginationEnabled = true //deviceType === DeviceTypes.PHONE &&
+            // deviceOrientation === DeviceOrientations.PORTRAIT;
 
         const deviceInfo = {deviceOrientation, deviceType};
         const layoutOptions = {

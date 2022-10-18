@@ -9,6 +9,8 @@ const {
     configureKeypad,
     setCursor,
     setKeyHandler,
+    goToPreviousPage,
+    goToNextPage,
 } = require('../actions');
 const createStore = require('../store');
 
@@ -50,11 +52,17 @@ class ProvidedKeypad extends React.Component {
         this.store.dispatch(setKeyHandler(keyHandler));
     };
 
+    changePage = (previousOrNext) => {
+        if (previousOrNext === 'previous') return this.store.dispatch(goToPreviousPage())
+        if (previousOrNext === 'next') return this.store.dispatch(goToNextPage())
+    }
+
     render() {
         const {onElementMounted, ...rest} = this.props;
 
         return <Provider store={this.store}>
             <KeypadContainer
+                onChangePage={this.changePage}
                 onElementMounted={(element) => {
                     // Append the dispatch methods that we want to expose
                     // externally to the returned React element.

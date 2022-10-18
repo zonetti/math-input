@@ -1,7 +1,4 @@
 const PropTypes = require('prop-types');
-/**
- * A keypad with two pages of keys.
- */
 
 const React = require('react');
 const {connect} = require('react-redux');
@@ -16,46 +13,30 @@ const {
     innerBorderColor, innerBorderStyle, innerBorderWidthPx, gray85,
 } = require('./common-style');
 
-class TwoPageKeypad extends React.Component {
+class ManyPagesKeypad extends React.Component {
     static propTypes = {
-        currentPage: PropTypes.oneOf([0, 1]).isRequired,
-        leftPage: PropTypes.node.isRequired,
+        currentPage: PropTypes.number.isRequired,
+        pages: PropTypes.node.isRequired,
         paginationEnabled: PropTypes.bool.isRequired,
-        rightPage: PropTypes.node.isRequired,
         onChangePage: PropTypes.func
     };
 
     render() {
         const {
             currentPage,
-            leftPage,
+            pages,
             paginationEnabled,
-            rightPage,
             onChangePage
         } = this.props;
 
-        if (paginationEnabled) {
-            return <Keypad style={[column, styles.keypad]}>
-                <PagerIndicator onChangePage={onChangePage} numPages={2} currentPage={currentPage} />
-                <View style={styles.borderTop}>
-                    <ViewPager>
-                        {leftPage}
-                        {rightPage}
-                    </ViewPager>
-                </View>
-            </Keypad>;
-        } else {
-            return <Keypad style={styles.keypad}>
-                <View style={row}>
-                    <View style={fullWidth}>
-                        {leftPage}
-                    </View>
-                    <View style={[styles.borderLeft, fullWidth]}>
-                        {rightPage}
-                    </View>
-                </View>
-            </Keypad>;
-        }
+        return <Keypad style={[column, styles.keypad]}>
+            <PagerIndicator onChangePage={onChangePage} numPages={pages.length} currentPage={currentPage} />
+            <View style={styles.borderTop}>
+                <ViewPager>
+                    {pages}
+                </ViewPager>
+            </View>
+        </Keypad>;
     }
 }
 
@@ -83,4 +64,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-module.exports = connect(mapStateToProps)(TwoPageKeypad);
+module.exports = connect(mapStateToProps)(ManyPagesKeypad);

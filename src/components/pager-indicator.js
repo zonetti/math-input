@@ -12,28 +12,21 @@ const {pageIndicatorHeightPx, gray68, gray85} = require('./common-style');
 
 class PagerIcon extends React.Component {
     static propTypes = {
+        text: PropTypes.string,
         active: PropTypes.bool,
-        radiusPx: PropTypes.number,
-    };
-
-    static defaultProps = {
-        active: false,
-        radiusPx: 4,
+        onChangePage: PropTypes.func
     };
 
     render() {
-        const {active, radiusPx} = this.props;
-
-        const fillColor = active ? gray68 : gray85;
-
-        return <svg width={2 * radiusPx} height={2 * radiusPx}>
-            <circle
-                cx={radiusPx}
-                cy={radiusPx}
-                r={radiusPx}
-                fill={fillColor}
-            />
-        </svg>;
+        const {text, active, onChangePage} = this.props;
+        const pStyle = {
+            cursor: active ? 'default' : 'pointer',
+            color: active ? 'black' : '#999',
+            margin: '0 5px'
+        }
+        return (
+            <p style={pStyle} onClick={onChangePage}>{text}</p>
+        );
     }
 }
 
@@ -41,35 +34,45 @@ class PagerIndicator extends React.Component {
     static propTypes = {
         currentPage: PropTypes.number.isRequired,
         numPages: PropTypes.number.isRequired,
+        onChangePage: PropTypes.func
     };
 
     render() {
-        const {currentPage, numPages} = this.props;
-
-        const pagerIconRadiusPx = 4;
+        const {currentPage, numPages, onChangePage} = this.props;
 
         // Collect the various indicator circles.
         const indicators = [];
+        const activePageIndex = Array
+            .from({length: numPages}, (x, i) => i)
+            .find(i => i === currentPage)
         for (let i = 0; i < numPages; i++) {
             indicators.push(
                 <PagerIcon
                     key={i}
+                    text={[
+                        'Lorem',
+                        'Ipsum',
+                        'Símbolos',
+                        'Números e operações'
+                    ][i]}
                     active={i === currentPage}
-                    radiusPx={pagerIconRadiusPx}
+                    onChangePage={() => {
+                        if (i < activePageIndex) {
+                            for (let j = 0; j < activePageIndex - i; j++) {
+                                onChangePage('previous')
+                            }
+                        } else if (i > activePageIndex) {
+                            for (let j = 0; j <  i - activePageIndex; j++) {
+                                onChangePage('next')
+                            }
+                        }
+                    }}
                 />
             );
         }
 
-        // Size the box that contains the icons to accommodate for proper
-        // spacing, and let Flexbox take care of the details.
-        const totalIconWidthPx = 2 * pagerIconRadiusPx * numPages;
-        const totalSpacingWidthPx = 2 * pagerIconRadiusPx * (numPages - 1);
-        const iconStripSize = {
-            width: totalIconWidthPx + totalSpacingWidthPx,
-        };
-
         return <View style={styles.indicatorStrip}>
-            <View style={styles.iconStrip} dynamicStyle={iconStripSize}>
+            <View style={styles.iconStrip}>
                 {indicators}
             </View>
         </View>;
