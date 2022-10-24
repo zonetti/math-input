@@ -145,6 +145,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     var keyConfig = ownProps.keyConfig,
         rest = _objectWithoutProperties(ownProps, ['keyConfig']);
 
+    console.log("keyConfig ", keyConfig);
     var id = keyConfig.id,
         childKeyIds = keyConfig.childKeyIds,
         type = keyConfig.type;

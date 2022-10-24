@@ -6,7 +6,7 @@ const PropTypes = require("prop-types");
  */
 const React = require("react");
 
-class Exp extends React.Component {
+class Sub extends React.Component {
   static propTypes = {
     color: PropTypes.string.isRequired,
   };
@@ -20,23 +20,23 @@ class Exp extends React.Component {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_337_389)">
+        <g clip-path="url(#clip0_337_578)">
           <rect width="22" height="20" fill="white" />
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"
-            d="M0 6C0 4.89543 0.89543 4 2 4H10C11.1046 4 12 4.89543 12 6V18C12 19.1046 11.1046 20 10 20H2C0.895431 20 0 19.1046 0 18V6ZM10 6L2 6V18H10V6Z"
+            d="M0 2C0 0.895431 0.89543 0 2 0H10C11.1046 0 12 0.89543 12 2V14C12 15.1046 11.1046 16 10 16H2C0.895431 16 0 15.1046 0 14V2ZM10 2L2 2V14H10V2Z"
             fill="#3C3E40"
           />
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"
-            d="M14 2C14 0.895431 14.8954 0 16 0H20C21.1046 0 22 0.89543 22 2V6C22 7.10457 21.1046 8 20 8H16C14.8954 8 14 7.10457 14 6V2ZM20 2H16V6H20V2Z"
+            d="M14 14C14 12.8954 14.8954 12 16 12H20C21.1046 12 22 12.8954 22 14V18C22 19.1046 21.1046 20 20 20H16C14.8954 20 14 19.1046 14 18V14ZM20 14H16V18H20V14Z"
             fill="#3C3E40"
           />
         </g>
         <defs>
-          <clipPath id="clip0_337_389">
+          <clipPath id="clip0_337_578">
             <rect width="22" height="20" fill="white" />
           </clipPath>
         </defs>
@@ -45,4 +45,4 @@ class Exp extends React.Component {
   }
 }
 
-module.exports = Exp;
+module.exports = Sub;

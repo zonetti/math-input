@@ -235,6 +235,16 @@ const KeyConfigs = {
         // I18N: A label for a button that will dismiss/hide a keypad.
         ariaLabel: i18n._('Dismiss'),
     },
+
+    [Keys.SUPSUB]: {
+        type: KeyTypes.OPERATOR,
+        ariaLabel: i18n._('Superscrito + subscrito'),
+    },
+
+    [Keys.SUB]: {
+        type: KeyTypes.OPERATOR,
+        ariaLabel: i18n._('Subscrito'),
+    }
 };
 
 // Add in any multi-function buttons. By default, these keys will mix in any

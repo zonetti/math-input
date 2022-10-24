@@ -46,5 +46,7 @@ module.exports = {
     JUMP_OUT_BASE: require('./jump-out-base'),
     JUMP_INTO_NUMERATOR: require('./jump-into-numerator'),
     JUMP_OUT_NUMERATOR: require('./jump-out-numerator'),
-    JUMP_OUT_DENOMINATOR: require('./jump-out-denominator')
+    JUMP_OUT_DENOMINATOR: require('./jump-out-denominator'),
+    SUPSUB: require('./sub-sup'),
+    SUB: require('./sub')
 };
