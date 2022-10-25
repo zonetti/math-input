@@ -11,16 +11,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var PropTypes = require("prop-types");
 var React = require("react");
 
-var Exp = function (_React$Component) {
-  _inherits(Exp, _React$Component);
+var Sub = function (_React$Component) {
+  _inherits(Sub, _React$Component);
 
-  function Exp() {
-    _classCallCheck(this, Exp);
+  function Sub() {
+    _classCallCheck(this, Sub);
 
-    return _possibleConstructorReturn(this, (Exp.__proto__ || Object.getPrototypeOf(Exp)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Sub.__proto__ || Object.getPrototypeOf(Sub)).apply(this, arguments));
   }
 
-  _createClass(Exp, [{
+  _createClass(Sub, [{
     key: "render",
     value: function render() {
       return React.createElement(
@@ -34,17 +34,17 @@ var Exp = function (_React$Component) {
         },
         React.createElement(
           "g",
-          { "clip-path": "url(#clip0_337_389)" },
+          { "clip-path": "url(#clip0_337_578)" },
           React.createElement("path", {
             "fill-rule": "evenodd",
             "clip-rule": "evenodd",
-            d: "M0 5.25C0 4.55964 0.559645 4 1.25 4H10.75C11.4404 4 12 4.55965 12 5.25V18.75C12 19.4404 11.4404 20 10.75 20H1.25C0.559643 20 0 19.4404 0 18.75V5.25ZM2 6V18H10V6H2Z",
+            d: "M0 1.25C0 0.559643 0.559645 0 1.25 0H10.75C11.4404 0 12 0.559645 12 1.25V14.75C12 15.4404 11.4404 16 10.75 16H1.25C0.559643 16 0 15.4404 0 14.75V1.25ZM2 2V14H10V2H2Z",
             fill: this.props.color
           }),
           React.createElement("path", {
             "fill-rule": "evenodd",
             "clip-rule": "evenodd",
-            d: "M14 1.25C14 0.559645 14.5596 0 15.25 0H20.75C21.4404 0 22 0.559644 22 1.25V6.75C22 7.44036 21.4404 8 20.75 8H15.25C14.5596 8 14 7.44036 14 6.75V1.25ZM16 2V6H20V2H16Z",
+            d: "M14 13.25C14 12.5596 14.5596 12 15.25 12H20.75C21.4404 12 22 12.5596 22 13.25V18.75C22 19.4404 21.4404 20 20.75 20H15.25C14.5596 20 14 19.4404 14 18.75V13.25ZM16 14V18H20V14H16Z",
             fill: this.props.color
           })
         ),
@@ -53,7 +53,7 @@ var Exp = function (_React$Component) {
           null,
           React.createElement(
             "clipPath",
-            { id: "clip0_337_389" },
+            { id: "clip0_337_578" },
             React.createElement("rect", { width: "22", height: "20", fill: "white" })
           )
         )
@@ -61,12 +61,12 @@ var Exp = function (_React$Component) {
     }
   }]);
 
-  return Exp;
+  return Sub;
 }(React.Component);
 
-Exp.propTypes = {
+Sub.propTypes = {
   color: PropTypes.string.isRequired
 };
 
 
-module.exports = Exp;
+module.exports = Sub;
