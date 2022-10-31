@@ -24,7 +24,6 @@ var _require2 = require("aphrodite"),
 var _require3 = require("../fake-react-native-web"),
     View = _require3.View;
 
-var TwoPageKeypad = require("./two-page-keypad");
 var ManyKeypadButton = require("./many-keypad-button");
 var TouchableKeypadButton = require("./touchable-keypad-button");
 
@@ -49,31 +48,26 @@ var _require7 = require("./prop-types"),
 
 var KeyConfigs = require("../data/key-configs");
 var CursorContexts = require("./input/cursor-contexts");
+var ManyPagesKeypad = require("./many-pages-keypad");
 
 var ExpressionKeypad = function (_React$Component) {
   _inherits(ExpressionKeypad, _React$Component);
 
   function ExpressionKeypad() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, ExpressionKeypad);
 
-    return _possibleConstructorReturn(this, (ExpressionKeypad.__proto__ || Object.getPrototypeOf(ExpressionKeypad)).apply(this, arguments));
-  }
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-  _createClass(ExpressionKeypad, [{
-    key: "render",
-
-
-    // Though we include an infinite-key popover in the bottom-left, it's
-    // assumed that we don't need to accommodate cases in which that key
-    // contains more than four children.
-    value: function render() {
-      var _props = this.props,
-          currentPage = _props.currentPage,
-          cursorContext = _props.cursorContext,
-          dynamicJumpOut = _props.dynamicJumpOut,
-          extraKeys = _props.extraKeys,
-          roundTopLeft = _props.roundTopLeft,
-          roundTopRight = _props.roundTopRight;
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ExpressionKeypad.__proto__ || Object.getPrototypeOf(ExpressionKeypad)).call.apply(_ref, [this].concat(args))), _this), _this._getDismissOrJumpOutKey = function () {
+      var _this$props = _this.props,
+          cursorContext = _this$props.cursorContext,
+          dynamicJumpOut = _this$props.dynamicJumpOut;
 
 
       var dismissOrJumpOutKey = void 0;
@@ -112,215 +106,862 @@ var ExpressionKeypad = function (_React$Component) {
         dismissOrJumpOutKey = KeyConfigs.DISMISS;
       }
 
-      var rightPageStyle = [row, fullWidth, styles.rightPage, roundTopRight && roundedTopRight];
-      var rightPage = React.createElement(
+      return dismissOrJumpOutKey;
+    }, _this._renderFirstPage = function () {
+      var _this$props2 = _this.props,
+          extraKeys = _this$props2.extraKeys,
+          roundTopLeft = _this$props2.roundTopLeft,
+          roundTopRight = _this$props2.roundTopRight;
+
+
+      var leftPageStyle = [row, fullWidth, styles.pageBackground, roundTopLeft && roundedTopLeft];
+
+      var columns = [React.createElement(
         View,
-        { style: rightPageStyle },
-        React.createElement(
-          View,
-          { style: [column, oneColumn] },
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.NUM_7,
-            borders: BorderStyles.NONE
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.NUM_4,
-            borders: BorderStyles.NONE
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.NUM_1,
-            borders: BorderStyles.BOTTOM
-          }),
-          React.createElement(ManyKeypadButton, { keys: extraKeys, borders: BorderStyles.NONE })
-        ),
-        React.createElement(
-          View,
-          { style: [column, oneColumn] },
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.NUM_8,
-            borders: BorderStyles.NONE
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.NUM_5,
-            borders: BorderStyles.NONE
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.NUM_2,
-            borders: BorderStyles.NONE
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.NUM_0,
-            borders: BorderStyles.LEFT
-          })
-        ),
-        React.createElement(
-          View,
-          { style: [column, oneColumn] },
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.NUM_9,
-            borders: BorderStyles.NONE
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.NUM_6,
-            borders: BorderStyles.NONE
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.NUM_3,
-            borders: BorderStyles.BOTTOM
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.DECIMAL,
-            borders: BorderStyles.LEFT
-          })
-        ),
-        React.createElement(
-          View,
-          { style: [column, oneColumn] },
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.DIVIDE,
-            borders: BorderStyles.LEFT
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.TIMES,
-            borders: BorderStyles.LEFT
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.MINUS,
-            borders: BorderStyles.LEFT
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.PLUS,
-            borders: BorderStyles.LEFT
-          })
-        ),
-        React.createElement(
-          View,
-          { style: [column, oneColumn] },
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.FRAC_INCLUSIVE,
-            style: roundTopRight && roundedTopRight
-          }),
-          React.createElement(TouchableKeypadButton, { keyConfig: KeyConfigs.CDOT }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.BACKSPACE,
-            borders: BorderStyles.LEFT
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: dismissOrJumpOutKey,
-            borders: BorderStyles.LEFT
-          })
-        )
-      );
-
-      var leftPageStyle = [row, fullWidth, styles.leftPage, roundTopLeft && roundedTopLeft];
-
-      var leftPage = React.createElement(
+        { key: 0, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.EXP,
+          borders: BorderStyles.NONE,
+          style: roundTopLeft && roundedTopLeft
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.SQRT,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.LOG,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.SIN,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
         View,
-        { style: leftPageStyle },
-        React.createElement(
-          View,
-          { style: [column, oneColumn] },
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.EXP,
-            borders: BorderStyles.NONE,
-            style: roundTopLeft && roundedTopLeft
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.SQRT,
-            borders: BorderStyles.NONE
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.LOG,
-            borders: BorderStyles.BOTTOM
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.SIN,
-            borders: BorderStyles.NONE
-          })
-        ),
-        React.createElement(
-          View,
-          { style: [column, oneColumn] },
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.SUB,
-            borders: BorderStyles.NONE
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.CUBE_ROOT,
-            borders: BorderStyles.NONE
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.LN,
-            borders: BorderStyles.BOTTOM
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.COS,
-            borders: BorderStyles.NONE
-          })
-        ),
-        React.createElement(
-          View,
-          { style: [column, oneColumn] },
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.SUPSUB,
-            borders: BorderStyles.NONE
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.RADICAL,
-            borders: BorderStyles.NONE
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.LOG_N,
-            borders: BorderStyles.BOTTOM
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.TAN,
-            borders: BorderStyles.NONE
-          })
-        ),
-        React.createElement(
-          View,
-          { style: [column, oneColumn] },
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.GEQ,
-            borders: BorderStyles.LEFT
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.EQUAL,
-            borders: BorderStyles.LEFT
-          }),
-          React.createElement(TouchableKeypadButton, { keyConfig: KeyConfigs.LEQ }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.LEFT_PAREN,
-            borders: BorderStyles.LEFT
-          })
-        ),
-        React.createElement(
-          View,
-          { style: [column, oneColumn] },
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.GT,
-            borders: BorderStyles.NONE
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.NEQ,
-            borders: BorderStyles.NONE
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.LT,
-            borders: BorderStyles.BOTTOM
-          }),
-          React.createElement(TouchableKeypadButton, {
-            keyConfig: KeyConfigs.RIGHT_PAREN,
-            borders: BorderStyles.NONE
-          })
-        )
-      );
+        { key: 1, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.SUB,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.CUBE_ROOT,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.LN,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.COS,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 2, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.SUPSUB,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.RADICAL,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.LOG_N,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.TAN,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 3, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.GEQ,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.EQUAL,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.LEQ,
+          borders: BorderStyles.ALL
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.LEFT_PAREN,
+          borders: BorderStyles.LEFT
+        })
+      ), React.createElement(
+        View,
+        { key: 4, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.GT,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.NEQ,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.LT,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.RIGHT_PAREN,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 5, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.NUM_7,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.NUM_4,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.NUM_1,
+          borders: BorderStyles.ALL
+        }),
+        React.createElement(ManyKeypadButton, { keys: extraKeys, borders: BorderStyles.LEFT })
+      ), React.createElement(
+        View,
+        { key: 6, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.NUM_8,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.NUM_5,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.NUM_2,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.NUM_0,
+          borders: BorderStyles.LEFT
+        })
+      ), React.createElement(
+        View,
+        { key: 7, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.NUM_9,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.NUM_6,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.NUM_3,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.DECIMAL,
+          borders: BorderStyles.LEFT
+        })
+      ), React.createElement(
+        View,
+        { key: 8, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.DIVIDE,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.TIMES,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.MINUS,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PLUS,
+          borders: BorderStyles.LEFT
+        })
+      ), React.createElement(
+        View,
+        { key: 9, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.FRAC_INCLUSIVE,
+          style: roundTopRight && roundedTopRight
+        }),
+        React.createElement(TouchableKeypadButton, { keyConfig: KeyConfigs.CDOT }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.BACKSPACE,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: _this._getDismissOrJumpOutKey(),
+          borders: BorderStyles.LEFT
+        })
+      )];
 
-      return React.createElement(TwoPageKeypad, {
+      return {
+        content: React.createElement(
+          View,
+          { key: "pag1", style: leftPageStyle },
+          columns.map(function (col) {
+            return col;
+          })
+        ),
+        title: "Geral"
+      };
+    }, _this._renderSecondPage = function () {
+      var roundTopLeft = _this.props.roundTopLeft;
+
+
+      var middlePageStyle = [row, fullWidth, styles.pageBackground];
+      var columns = [React.createElement(
+        View,
+        { key: 0, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE,
+          style: roundTopLeft && roundedTopLeft
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 1, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 2, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 3, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 4, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 5, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 6, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 7, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 8, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        })
+      ), React.createElement(
+        View,
+        { key: 9, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.BACKSPACE,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: _this._getDismissOrJumpOutKey(),
+          borders: BorderStyles.LEFT
+        })
+      )];
+
+      return {
+        content: React.createElement(
+          View,
+          { key: "pag2", style: middlePageStyle },
+          columns.map(function (col) {
+            return col;
+          })
+        ),
+        title: "Letras gregas"
+      };
+    }, _this._renderThirdPage = function () {
+      var roundTopLeft = _this.props.roundTopLeft;
+
+
+      var middlePageStyle = [row, fullWidth, styles.pageBackground];
+      var columns = [React.createElement(
+        View,
+        { key: 0, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE,
+          style: roundTopLeft && roundedTopLeft
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 1, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 2, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 3, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 4, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 5, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 6, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 7, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.BOTTOM
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 8, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        })
+      ), React.createElement(
+        View,
+        { key: 9, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.BACKSPACE,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: _this._getDismissOrJumpOutKey(),
+          borders: BorderStyles.LEFT
+        })
+      )];
+
+      return {
+        content: React.createElement(
+          View,
+          { key: "pag3", style: middlePageStyle },
+          columns.map(function (col) {
+            return col;
+          })
+        ),
+        title: "Setas e relações"
+      };
+    }, _this._renderFourthPage = function () {
+      var roundTopRight = _this.props.roundTopRight;
+
+
+      var rightPageStyle = [row, fullWidth, styles.pageBackground, roundTopRight && roundedTopRight];
+
+      var columns = [React.createElement(
+        View,
+        { key: 0, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        })
+      ), React.createElement(
+        View,
+        { key: 1, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        })
+      ), React.createElement(
+        View,
+        { key: 2, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        })
+      ), React.createElement(
+        View,
+        { key: 3, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        })
+      ), React.createElement(
+        View,
+        { key: 4, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        })
+      ), React.createElement(
+        View,
+        { key: 5, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        })
+      ), React.createElement(
+        View,
+        { key: 6, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        })
+      ), React.createElement(
+        View,
+        { key: 7, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        })
+      ), React.createElement(
+        View,
+        { key: 8, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.LEFT
+        })
+      ), React.createElement(
+        View,
+        { key: 9, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.PI,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.BACKSPACE,
+          borders: BorderStyles.LEFT
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: _this._getDismissOrJumpOutKey(),
+          borders: BorderStyles.LEFT
+        })
+      )];
+
+      return {
+        content: React.createElement(
+          View,
+          { key: "pag4", style: rightPageStyle },
+          columns.map(function (col) {
+            return col;
+          })
+        ),
+        title: "Símbolos matemáticos"
+      };
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  // Though we include an infinite-key popover in the bottom-left, it's
+  // assumed that we don't need to accommodate cases in which that key
+  // contains more than four children.
+
+
+  _createClass(ExpressionKeypad, [{
+    key: "render",
+    value: function render() {
+      var _props = this.props,
+          currentPage = _props.currentPage,
+          onChangePage = _props.onChangePage;
+
+
+      var firstPage = this._renderFirstPage();
+      var secondPage = this._renderSecondPage();
+      var thirdPage = this._renderThirdPage();
+      var fourthPage = this._renderFourthPage();
+
+      return React.createElement(ManyPagesKeypad, {
+        onChangePage: onChangePage,
         currentPage: currentPage,
-        rightPage: rightPage,
-        leftPage: leftPage
+        pages: [firstPage, secondPage, thirdPage, fourthPage]
       });
     }
   }]);
@@ -334,12 +975,13 @@ ExpressionKeypad.propTypes = {
   dynamicJumpOut: PropTypes.bool,
   extraKeys: PropTypes.arrayOf(keyIdPropType),
   roundTopLeft: PropTypes.bool,
-  roundTopRight: PropTypes.bool
+  roundTopRight: PropTypes.bool,
+  onChangePage: PropTypes.func
 };
 ExpressionKeypad.rows = 4;
-ExpressionKeypad.columns = 5;
+ExpressionKeypad.columns = 10;
 ExpressionKeypad.maxVisibleRows = 4;
-ExpressionKeypad.numPages = 2;
+ExpressionKeypad.numPages = 4;
 
 
 var styles = StyleSheet.create({
@@ -348,12 +990,8 @@ var styles = StyleSheet.create({
   // page use this background color (namely, the 'command' keys, backspace and
   // dismiss).
   // TODO(charlie): Apply the proper background between the 'command' keys.
-  rightPage: {
+  pageBackground: {
     backgroundColor: valueGrey
-  },
-
-  leftPage: {
-    backgroundColor: controlGrey
   }
 });
 

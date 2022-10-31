@@ -127,13 +127,11 @@ var createStore = function createStore() {
     // We default to the right-most page. This is done so-as to enforce a
     // consistent orientation between the view pager layout and the flattened
     // layout, where our default page appears on the far right.
-    var getDefaultPage = function getDefaultPage(numPages) {
-        return numPages - 1;
-    };
+    var defaultPage = 0;
 
     var initialPagerState = {
         animateToPosition: false,
-        currentPage: getDefaultPage(keypadForType[defaultKeypadType].numPages),
+        currentPage: defaultPage,
         // The cumulative differential in the horizontal direction for the
         // current swipe.
         dx: 0,
@@ -154,7 +152,7 @@ var createStore = function createStore() {
                 return _extends({}, state, {
                     numPages: numPages,
                     animateToPosition: false,
-                    currentPage: getDefaultPage(numPages),
+                    currentPage: defaultPage,
                     dx: 0
                 });
 
@@ -167,16 +165,17 @@ var createStore = function createStore() {
                 var keyConfig = KeyConfigs[action.key];
 
                 // Reset the keypad page if the user performs a math operation.
-                if (keyConfig.type === KeyTypes.VALUE || keyConfig.type === KeyTypes.OPERATOR) {
-                    return pagerReducer(state, { type: 'ResetKeypadPage' });
-                }
+                // if (keyConfig.type === KeyTypes.VALUE ||
+                //         keyConfig.type === KeyTypes.OPERATOR) {
+                //     return pagerReducer(state, {type: 'ResetKeypadPage'});
+                // }
                 return state;
 
             case 'ResetKeypadPage':
                 return _extends({}, state, {
                     animateToPosition: true,
                     // We start at the right-most page.
-                    currentPage: getDefaultPage(state.numPages),
+                    currentPage: defaultPage,
                     dx: 0
                 });
 
@@ -396,7 +395,8 @@ var createStore = function createStore() {
         // Using that information, make some decisions (or assumptions)
         // about the resulting layout.
         var navigationPadEnabled = deviceType === DeviceTypes.TABLET;
-        var paginationEnabled = deviceType === DeviceTypes.PHONE && deviceOrientation === DeviceOrientations.PORTRAIT;
+        var paginationEnabled = true; //deviceType === DeviceTypes.PHONE &&
+        // deviceOrientation === DeviceOrientations.PORTRAIT;
 
         var deviceInfo = { deviceOrientation: deviceOrientation, deviceType: deviceType };
         var layoutOptions = {

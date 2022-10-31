@@ -1,6 +1,17 @@
 'use strict';
 
 module.exports = {
+    goToPreviousPage: function goToPreviousPage() {
+        return {
+            type: 'PageKeypadLeft'
+        };
+    },
+    goToNextPage: function goToNextPage() {
+        return {
+            type: 'PageKeypadRight'
+        };
+    },
+
     // naming convetion: verb + noun
     // the noun should be one of the other properties in the object that's
     // being dispatched

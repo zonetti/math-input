@@ -90,7 +90,8 @@ var KeypadContainer = function (_React$Component) {
                 extraKeys = _this$props.extraKeys,
                 keypadType = _this$props.keypadType,
                 layoutMode = _this$props.layoutMode,
-                navigationPadEnabled = _this$props.navigationPadEnabled;
+                navigationPadEnabled = _this$props.navigationPadEnabled,
+                onChangePage = _this$props.onChangePage;
 
 
             var keypadProps = {
@@ -115,7 +116,7 @@ var KeypadContainer = function (_React$Component) {
                     return React.createElement(FractionKeypad, keypadProps);
 
                 case KeypadTypes.EXPRESSION:
-                    return React.createElement(ExpressionKeypad, keypadProps);
+                    return React.createElement(ExpressionKeypad, _extends({ onChangePage: onChangePage }, keypadProps));
 
                 default:
                     throw new Error("Invalid keypad type: " + keypadType);
@@ -236,7 +237,8 @@ KeypadContainer.propTypes = {
     // mount.
     onElementMounted: PropTypes.func,
     onPageSizeChange: PropTypes.func.isRequired,
-    style: PropTypes.any
+    style: PropTypes.any,
+    onChangePage: PropTypes.func
 };
 
 
