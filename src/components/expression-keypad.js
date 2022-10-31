@@ -19,7 +19,7 @@ const {
   roundedTopRight,
 } = require("./styles");
 const { BorderStyles } = require("../consts");
-const { valueGrey, controlGrey } = require("./common-style");
+const { valueGrey } = require("./common-style");
 const { cursorContextPropType, keyIdPropType } = require("./prop-types");
 const KeyConfigs = require("../data/key-configs");
 const CursorContexts = require("./input/cursor-contexts");

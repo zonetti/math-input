@@ -61,9 +61,9 @@ class ViewPager extends React.Component {
     // large enough to accommodate for all pages (so, number of pages * 100%) and some
     // separators.
     const pageWidth = StyleSheet.create({
-        mw: {
-            maxWidth: (children.length * 100).toString() + "%",
-        }
+      mw: {
+        maxWidth: (children.length * 100).toString() + "%",
+      },
     });
 
     const pagerStyle = [row, styles.manyPagePager, pageWidth.mw];
@@ -99,10 +99,18 @@ class ViewPager extends React.Component {
       <View style={pagerStyle} dynamicStyle={dynamicPagerStyle}>
         {children.map((pageView, index) => {
           if (index < children.length - 1) {
-            return <View key={index} dynamicStyle={dynamicPageStyle}>{pageView}</View>;
+            return (
+              <View key={index} dynamicStyle={dynamicPageStyle}>
+                {pageView}
+              </View>
+            );
           } else {
             return (
-              <View key={index} style={styles.rightPage} dynamicStyle={dynamicPageStyle}>
+              <View
+                key={index}
+                style={styles.rightPage}
+                dynamicStyle={dynamicPageStyle}
+              >
                 {pageView}
               </View>
             );

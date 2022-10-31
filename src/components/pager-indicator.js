@@ -25,7 +25,7 @@ class PagerIcon extends React.Component {
       margin: "0 5px",
       fontFamily: "Lato",
       fontSize: "16px",
-      fontWeight: '700',
+      fontWeight: "700",
     };
     return (
       <p style={pStyle} onClick={onChangePage}>
@@ -54,8 +54,7 @@ class PagerIndicator extends React.Component {
       indicators.push(
         <PagerIcon
           key={i}
-          text={titles[i]
-          }
+          text={titles[i]}
           active={i === currentPage}
           onChangePage={() => {
             if (i < activePageIndex) {
