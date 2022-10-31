@@ -11,30 +11,30 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var PropTypes = require("prop-types");
 var React = require("react");
 
-var Exp = function (_React$Component) {
-  _inherits(Exp, _React$Component);
+var SubSup = function (_React$Component) {
+  _inherits(SubSup, _React$Component);
 
-  function Exp() {
-    _classCallCheck(this, Exp);
+  function SubSup() {
+    _classCallCheck(this, SubSup);
 
-    return _possibleConstructorReturn(this, (Exp.__proto__ || Object.getPrototypeOf(Exp)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (SubSup.__proto__ || Object.getPrototypeOf(SubSup)).apply(this, arguments));
   }
 
-  _createClass(Exp, [{
+  _createClass(SubSup, [{
     key: "render",
     value: function render() {
       return React.createElement(
         "svg",
         {
           width: "22",
-          height: "20",
-          viewBox: "0 0 22 20",
+          height: "24",
+          viewBox: "0 0 22 24",
           fill: "none",
           xmlns: "http://www.w3.org/2000/svg"
         },
         React.createElement(
           "g",
-          { "clip-path": "url(#clip0_337_389)" },
+          { "clip-path": "url(#clip0_337_606)" },
           React.createElement("path", {
             "fill-rule": "evenodd",
             "clip-rule": "evenodd",
@@ -46,6 +46,12 @@ var Exp = function (_React$Component) {
             "clip-rule": "evenodd",
             d: "M14 1.25C14 0.559645 14.5596 0 15.25 0H20.75C21.4404 0 22 0.559644 22 1.25V6.75C22 7.44036 21.4404 8 20.75 8H15.25C14.5596 8 14 7.44036 14 6.75V1.25ZM16 2V6H20V2H16Z",
             fill: this.props.color
+          }),
+          React.createElement("path", {
+            "fill-rule": "evenodd",
+            "clip-rule": "evenodd",
+            d: "M14 17.25C14 16.5596 14.5596 16 15.25 16H20.75C21.4404 16 22 16.5596 22 17.25V22.75C22 23.4404 21.4404 24 20.75 24H15.25C14.5596 24 14 23.4404 14 22.75V17.25ZM16 18V22H20V18H16Z",
+            fill: this.props.color
           })
         ),
         React.createElement(
@@ -53,20 +59,20 @@ var Exp = function (_React$Component) {
           null,
           React.createElement(
             "clipPath",
-            { id: "clip0_337_389" },
-            React.createElement("rect", { width: "22", height: "20", fill: "white" })
+            { id: "clip0_337_606" },
+            React.createElement("rect", { width: "22", height: "24", fill: "white" })
           )
         )
       );
     }
   }]);
 
-  return Exp;
+  return SubSup;
 }(React.Component);
 
-Exp.propTypes = {
+SubSup.propTypes = {
   color: PropTypes.string.isRequired
 };
 
 
-module.exports = Exp;
+module.exports = SubSup;

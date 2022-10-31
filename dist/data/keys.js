@@ -66,7 +66,10 @@ var Keys = {
 
     // A custom key that captures an arbitrary number of symbols but has no
     // 'default' symbol or action.
-    MANY: 'MANY'
+    MANY: 'MANY',
+
+    SUPSUB: 'SUPSUB',
+    SUB: 'SUB'
 };
 
 module.exports = Keys;

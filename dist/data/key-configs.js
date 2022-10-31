@@ -197,6 +197,12 @@ var KeyConfigs = (_KeyConfigs = {}, _defineProperty(_KeyConfigs, Keys.PLUS, {
     type: KeyTypes.KEYPAD_NAVIGATION,
     // I18N: A label for a button that will dismiss/hide a keypad.
     ariaLabel: i18n._('Dismiss')
+}), _defineProperty(_KeyConfigs, Keys.SUPSUB, {
+    type: KeyTypes.OPERATOR,
+    ariaLabel: i18n._('Superscrito + subscrito')
+}), _defineProperty(_KeyConfigs, Keys.SUB, {
+    type: KeyTypes.OPERATOR,
+    ariaLabel: i18n._('Subscrito')
 }), _KeyConfigs);
 
 // Add in any multi-function buttons. By default, these keys will mix in any

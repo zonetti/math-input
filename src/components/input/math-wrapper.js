@@ -162,7 +162,7 @@ class MathWrapper {
             this.mathField.write('\\sqrt[3]{}');
             this.mathField.keystroke('Left'); // under the root
         } else if (key === Keys.EXP || key === Keys.EXP_2 ||
-                key === Keys.EXP_3) {
+                key === Keys.EXP_3 || key == Keys.SUPSUB) {
             this._handleExponent(cursor, key);
         } else if (key === Keys.JUMP_OUT_PARENTHESES ||
                 key === Keys.JUMP_OUT_EXPONENT ||
@@ -181,6 +181,8 @@ class MathWrapper {
             this.mathField[WRITE](key);
         } else if (/^NUM_\d/.test(key)) {
             this.mathField[WRITE](key[4]);
+        } else if (key === Keys.SUB) {
+            this._handleSubscript(cursor, key);
         }
 
         if (!cursor.selection) {  // don't show the cursor for selections
@@ -510,10 +512,49 @@ class MathWrapper {
                     this.mathField.keystroke('Left');
                 }
                 break;
+            case Keys.SUPSUB:
+                this.mathField.write('_{}^{}');
+                if (shouldPrefixWithParens) {
+                    this.mathField.keystroke('Left');
+                    this.mathField.keystroke('Left');
+                    this.mathField.keystroke('Left');
+                }
+                this.mathField.keystroke('Left');
+                break;
 
             default:
                 throw new Error(`Invalid exponent key: ${key}`);
         }
+    }
+
+    _handleSubscript(cursor, key) {
+        // If there's an invalid operator preceding the cursor (anything that
+        // knowingly cannot have a subscript), add an empty set of
+        // parentheses and apply the subscript to that.
+        const invalidPrefixes = [...ArithmeticOperators, ...EqualityOperators];
+
+        const precedingNode = cursor[this.MQ.L];
+        const shouldPrefixWithParens = precedingNode === MQ_END ||
+                invalidPrefixes.includes(precedingNode.ctrlSeq.trim());
+        if (shouldPrefixWithParens) {
+            this.mathField.write('\\left(\\right)');
+        }
+
+        switch (key) {
+            case Keys.SUB:
+                this.mathField.cmd('_');
+
+                if (shouldPrefixWithParens) {
+                    this.mathField.keystroke('Left');
+                    this.mathField.keystroke('Left');
+                }
+
+                break;
+
+            default:
+                throw new Error(`Invalid subscript key: ${key}`);
+        }
+
     }
 
     /**
