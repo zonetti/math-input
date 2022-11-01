@@ -39,8 +39,7 @@ var _require5 = require("../consts"),
     BorderStyles = _require5.BorderStyles;
 
 var _require6 = require("./common-style"),
-    valueGrey = _require6.valueGrey,
-    controlGrey = _require6.controlGrey;
+    valueGrey = _require6.valueGrey;
 
 var _require7 = require("./prop-types"),
     cursorContextPropType = _require7.cursorContextPropType,
@@ -69,14 +68,12 @@ var ExpressionKeypad = function (_React$Component) {
           cursorContext = _this$props.cursorContext,
           dynamicJumpOut = _this$props.dynamicJumpOut;
 
-
       var dismissOrJumpOutKey = void 0;
       if (dynamicJumpOut) {
         switch (cursorContext) {
           case CursorContexts.IN_PARENS:
             dismissOrJumpOutKey = KeyConfigs.JUMP_OUT_PARENTHESES;
             break;
-
           case CursorContexts.IN_SUPER_SCRIPT:
             dismissOrJumpOutKey = KeyConfigs.JUMP_OUT_EXPONENT;
             break;

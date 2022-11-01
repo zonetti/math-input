@@ -137,7 +137,11 @@ var ViewPager = function (_React$Component) {
           } else {
             return React.createElement(
               View,
-              { key: index, style: styles.rightPage, dynamicStyle: dynamicPageStyle },
+              {
+                key: index,
+                style: styles.rightPage,
+                dynamicStyle: dynamicPageStyle
+              },
               pageView
             );
           }

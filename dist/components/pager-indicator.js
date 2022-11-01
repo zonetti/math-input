@@ -48,7 +48,7 @@ var PagerIcon = function (_React$Component) {
         margin: "0 5px",
         fontFamily: "Lato",
         fontSize: "16px",
-        fontWeight: '700'
+        fontWeight: "700"
       };
       return React.createElement(
         "p",
