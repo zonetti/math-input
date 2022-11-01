@@ -300,21 +300,21 @@ try {
   }
 }
 
-var GREEK_LETTERS = ["β", "Γ", "Δ", "Ε", "δ", "η", "Θ", "ι", "k", "Λ", "μ", "ν", "Ξ", "Ο", "Π", "Ρ", "Σ", "Τ", "υ", "Φ", "χ", "Ψ", "Ω", "α", "γ", "δ", "ε", "θ", "λ", "ξ", "ο", "π", "ρ", "σ", "τ", "φ", "ψ", "ω"];
+var SPECIAL_CHARACTERS = ["β", "Γ", "Δ", "Ε", "δ", "η", "Θ", "ι", "k", "Λ", "μ", "ν", "Ξ", "Ο", "Π", "Ρ", "Σ", "Τ", "υ", "Φ", "χ", "Ψ", "Ω", "α", "γ", "δ", "ε", "θ", "λ", "ξ", "ο", "π", "ρ", "σ", "τ", "φ", "ψ", "ω", "ζ", "∀", "∁", "∂", "∃", "∄", "∅", "∆", "∇", "∈", "∉", "∴", "∋", "∌", "≦", "≧", "⋘", "⋙", "∑", "≠", "∓", "≡", "∕", "∖", "∘", "∙", "∪", "⊃", "⊄", "⊅", "∞", "≅", "∠", "⊂", "⋂", "⋃", "∩", "∫", "|", "←", "↑", "→", "↓", "↔", "↕", "↖", "↗", "↘", "↙", "↚", "↛", "↜", "↝", "⇦", "⇧", "⇨", "⇩", "↢", "↣", "⇄", "⇅", "⇆", "⇇", "⇈", "⇉", "⇊", "⇋", "⇿", "↯", "↰", "↱", "↲", "↳", "↴", "↵", "↶", "↷"];
 var _iteratorNormalCompletion3 = true;
 var _didIteratorError3 = false;
 var _iteratorError3 = undefined;
 
 try {
-  for (var _iterator3 = GREEK_LETTERS[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-    var gl = _step3.value;
+  for (var _iterator3 = SPECIAL_CHARACTERS[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+    var sc = _step3.value;
 
-    KeyConfigs[gl] = {
+    KeyConfigs[sc] = {
       type: KeyTypes.VALUE,
-      ariaLabel: gl,
+      ariaLabel: sc,
       icon: {
         type: IconTypes.TEXT,
-        data: gl
+        data: sc
       }
     };
   }
