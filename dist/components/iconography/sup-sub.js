@@ -11,40 +11,46 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var PropTypes = require("prop-types");
 var React = require("react");
 
-var Sub = function (_React$Component) {
-  _inherits(Sub, _React$Component);
+var SupSub = function (_React$Component) {
+  _inherits(SupSub, _React$Component);
 
-  function Sub() {
-    _classCallCheck(this, Sub);
+  function SupSub() {
+    _classCallCheck(this, SupSub);
 
-    return _possibleConstructorReturn(this, (Sub.__proto__ || Object.getPrototypeOf(Sub)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (SupSub.__proto__ || Object.getPrototypeOf(SupSub)).apply(this, arguments));
   }
 
-  _createClass(Sub, [{
+  _createClass(SupSub, [{
     key: "render",
     value: function render() {
       return React.createElement(
         "svg",
         {
           width: "22",
-          height: "20",
-          viewBox: "0 0 22 20",
+          height: "24",
+          viewBox: "0 0 22 24",
           fill: "none",
           xmlns: "http://www.w3.org/2000/svg"
         },
         React.createElement(
           "g",
-          { clipPath: "url(#clip0_337_578)" },
+          { clipPath: "url(#clip0_337_606)" },
           React.createElement("path", {
             fillRule: "evenodd",
             clipRule: "evenodd",
-            d: "M0 1.25C0 0.559643 0.559645 0 1.25 0H10.75C11.4404 0 12 0.559645 12 1.25V14.75C12 15.4404 11.4404 16 10.75 16H1.25C0.559643 16 0 15.4404 0 14.75V1.25ZM2 2V14H10V2H2Z",
+            d: "M0 5.25C0 4.55964 0.559645 4 1.25 4H10.75C11.4404 4 12 4.55965 12 5.25V18.75C12 19.4404 11.4404 20 10.75 20H1.25C0.559643 20 0 19.4404 0 18.75V5.25ZM2 6V18H10V6H2Z",
             fill: this.props.color
           }),
           React.createElement("path", {
             fillRule: "evenodd",
             clipRule: "evenodd",
-            d: "M14 13.25C14 12.5596 14.5596 12 15.25 12H20.75C21.4404 12 22 12.5596 22 13.25V18.75C22 19.4404 21.4404 20 20.75 20H15.25C14.5596 20 14 19.4404 14 18.75V13.25ZM16 14V18H20V14H16Z",
+            d: "M14 1.25C14 0.559645 14.5596 0 15.25 0H20.75C21.4404 0 22 0.559644 22 1.25V6.75C22 7.44036 21.4404 8 20.75 8H15.25C14.5596 8 14 7.44036 14 6.75V1.25ZM16 2V6H20V2H16Z",
+            fill: this.props.color
+          }),
+          React.createElement("path", {
+            fillRule: "evenodd",
+            clipRule: "evenodd",
+            d: "M14 17.25C14 16.5596 14.5596 16 15.25 16H20.75C21.4404 16 22 16.5596 22 17.25V22.75C22 23.4404 21.4404 24 20.75 24H15.25C14.5596 24 14 23.4404 14 22.75V17.25ZM16 18V22H20V18H16Z",
             fill: this.props.color
           })
         ),
@@ -53,20 +59,20 @@ var Sub = function (_React$Component) {
           null,
           React.createElement(
             "clipPath",
-            { id: "clip0_337_578" },
-            React.createElement("rect", { width: "22", height: "20", fill: "white" })
+            { id: "clip0_337_606" },
+            React.createElement("rect", { width: "22", height: "24", fill: "white" })
           )
         )
       );
     }
   }]);
 
-  return Sub;
+  return SupSub;
 }(React.Component);
 
-Sub.propTypes = {
+SupSub.propTypes = {
   color: PropTypes.string.isRequired
 };
 
 
-module.exports = Sub;
+module.exports = SupSub;

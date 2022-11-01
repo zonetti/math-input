@@ -32,6 +32,7 @@ class KeypadContainer extends React.Component {
         onElementMounted: PropTypes.func,
         onPageSizeChange: PropTypes.func.isRequired,
         style: PropTypes.any,
+        onChangePage: PropTypes.func
     };
 
     state = {
@@ -107,6 +108,7 @@ class KeypadContainer extends React.Component {
             keypadType,
             layoutMode,
             navigationPadEnabled,
+            onChangePage
         } = this.props;
 
         const keypadProps = {
@@ -132,7 +134,7 @@ class KeypadContainer extends React.Component {
                 return <FractionKeypad {...keypadProps} />;
 
             case KeypadTypes.EXPRESSION:
-                return <ExpressionKeypad {...keypadProps} />;
+                return <ExpressionKeypad onChangePage={onChangePage} {...keypadProps} />;
 
             default:
                 throw new Error("Invalid keypad type: " + keypadType);

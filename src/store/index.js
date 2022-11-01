@@ -118,11 +118,11 @@ const createStore = () => {
     // We default to the right-most page. This is done so-as to enforce a
     // consistent orientation between the view pager layout and the flattened
     // layout, where our default page appears on the far right.
-    const getDefaultPage = (numPages) => numPages - 1;
+    const defaultPage = 0;
 
     const initialPagerState = {
         animateToPosition: false,
-        currentPage: getDefaultPage(keypadForType[defaultKeypadType].numPages),
+        currentPage: defaultPage,
         // The cumulative differential in the horizontal direction for the
         // current swipe.
         dx: 0,
@@ -140,7 +140,7 @@ const createStore = () => {
                     ...state,
                     numPages,
                     animateToPosition: false,
-                    currentPage: getDefaultPage(numPages),
+                    currentPage: defaultPage,
                     dx: 0,
                 };
 
@@ -154,10 +154,10 @@ const createStore = () => {
                 const keyConfig = KeyConfigs[action.key];
 
                 // Reset the keypad page if the user performs a math operation.
-                if (keyConfig.type === KeyTypes.VALUE ||
-                        keyConfig.type === KeyTypes.OPERATOR) {
-                    return pagerReducer(state, {type: 'ResetKeypadPage'});
-                }
+                // if (keyConfig.type === KeyTypes.VALUE ||
+                //         keyConfig.type === KeyTypes.OPERATOR) {
+                //     return pagerReducer(state, {type: 'ResetKeypadPage'});
+                // }
                 return state;
 
             case 'ResetKeypadPage':
@@ -165,7 +165,7 @@ const createStore = () => {
                     ...state,
                     animateToPosition: true,
                     // We start at the right-most page.
-                    currentPage: getDefaultPage(state.numPages),
+                    currentPage: defaultPage,
                     dx: 0,
                 };
 
@@ -406,8 +406,8 @@ const createStore = () => {
         // Using that information, make some decisions (or assumptions)
         // about the resulting layout.
         const navigationPadEnabled = deviceType === DeviceTypes.TABLET;
-        const paginationEnabled = deviceType === DeviceTypes.PHONE &&
-            deviceOrientation === DeviceOrientations.PORTRAIT;
+        const paginationEnabled = true //deviceType === DeviceTypes.PHONE &&
+            // deviceOrientation === DeviceOrientations.PORTRAIT;
 
         const deviceInfo = {deviceOrientation, deviceType};
         const layoutOptions = {

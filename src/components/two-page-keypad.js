@@ -22,6 +22,7 @@ class TwoPageKeypad extends React.Component {
         leftPage: PropTypes.node.isRequired,
         paginationEnabled: PropTypes.bool.isRequired,
         rightPage: PropTypes.node.isRequired,
+        onChangePage: PropTypes.func
     };
 
     render() {
@@ -30,11 +31,12 @@ class TwoPageKeypad extends React.Component {
             leftPage,
             paginationEnabled,
             rightPage,
+            onChangePage
         } = this.props;
 
         if (paginationEnabled) {
             return <Keypad style={[column, styles.keypad]}>
-                <PagerIndicator numPages={2} currentPage={currentPage} />
+                <PagerIndicator onChangePage={onChangePage} numPages={2} currentPage={currentPage} />
                 <View style={styles.borderTop}>
                     <ViewPager>
                         {leftPage}

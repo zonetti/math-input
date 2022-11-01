@@ -55,14 +55,15 @@ var TwoPageKeypad = function (_React$Component) {
                 currentPage = _props.currentPage,
                 leftPage = _props.leftPage,
                 paginationEnabled = _props.paginationEnabled,
-                rightPage = _props.rightPage;
+                rightPage = _props.rightPage,
+                onChangePage = _props.onChangePage;
 
 
             if (paginationEnabled) {
                 return React.createElement(
                     Keypad,
                     { style: [column, styles.keypad] },
-                    React.createElement(PagerIndicator, { numPages: 2, currentPage: currentPage }),
+                    React.createElement(PagerIndicator, { onChangePage: onChangePage, numPages: 2, currentPage: currentPage }),
                     React.createElement(
                         View,
                         { style: styles.borderTop },
@@ -104,7 +105,8 @@ TwoPageKeypad.propTypes = {
     currentPage: PropTypes.oneOf([0, 1]).isRequired,
     leftPage: PropTypes.node.isRequired,
     paginationEnabled: PropTypes.bool.isRequired,
-    rightPage: PropTypes.node.isRequired
+    rightPage: PropTypes.node.isRequired,
+    onChangePage: PropTypes.func
 };
 
 

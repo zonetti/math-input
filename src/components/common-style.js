@@ -35,12 +35,12 @@ module.exports = {
 
     // The width at which a device is classified as a "tablet" for the purposes
     // of the keypad layout.
-    tabletCutoffPx: 600,
+    tabletCutoffPx: 2000, // old value: 600
 
     // The dimensions that define various components in the tree, which may be
     // needed outside of those components in order to determine various layout
     // parameters.
-    pageIndicatorHeightPx: 16,
+    pageIndicatorHeightPx: 50,
     navigationPadWidthPx: 192,
     // HACK(charlie): This should be injected by webapp somehow.
     // TODO(charlie): Add a link to the webapp location as soon as the footer

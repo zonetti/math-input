@@ -25,7 +25,9 @@ var _require2 = require('../actions'),
     dismissKeypad = _require2.dismissKeypad,
     configureKeypad = _require2.configureKeypad,
     setCursor = _require2.setCursor,
-    setKeyHandler = _require2.setKeyHandler;
+    setKeyHandler = _require2.setKeyHandler,
+    goToPreviousPage = _require2.goToPreviousPage,
+    goToNextPage = _require2.goToNextPage;
 
 var createStore = require('../store');
 
@@ -64,6 +66,9 @@ var ProvidedKeypad = function (_React$Component) {
             _this.store.dispatch(setCursor(cursor));
         }, _this.setKeyHandler = function (keyHandler) {
             _this.store.dispatch(setKeyHandler(keyHandler));
+        }, _this.changePage = function (previousOrNext) {
+            if (previousOrNext === 'previous') return _this.store.dispatch(goToPreviousPage());
+            if (previousOrNext === 'next') return _this.store.dispatch(goToNextPage());
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
@@ -85,6 +90,7 @@ var ProvidedKeypad = function (_React$Component) {
                 Provider,
                 { store: this.store },
                 React.createElement(KeypadContainer, _extends({
+                    onChangePage: this.changePage,
                     onElementMounted: function onElementMounted(element) {
                         // Append the dispatch methods that we want to expose
                         // externally to the returned React element.

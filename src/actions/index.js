@@ -1,4 +1,15 @@
 module.exports = {
+    goToPreviousPage() {
+        return {
+            type: 'PageKeypadLeft'
+        }
+    },
+
+    goToNextPage() {
+        return {
+            type: 'PageKeypadRight'
+        }
+    },
     // naming convetion: verb + noun
     // the noun should be one of the other properties in the object that's
     // being dispatched
