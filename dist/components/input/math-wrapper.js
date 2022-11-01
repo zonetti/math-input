@@ -161,11 +161,13 @@ var MathWrapper = function () {
             } else if (key === Keys.RIGHT || key === Keys.JUMP_OUT) {
                 this._handleRightArrow(cursor);
             } else if (/^[a-zA-Z]$/.test(key)) {
-                this.mathField[WRITE](key);
+                this.mathField.write(key);
             } else if (/^NUM_\d/.test(key)) {
-                this.mathField[WRITE](key[4]);
+                this.mathField.write(key[4]);
             } else if (key === Keys.SUB) {
                 this._handleSubscript(cursor, key);
+            } else if (/^[αβγΓδΔεΕθδληξΘοιπkρΛσμτνφΞψΟωΠΡΣΤυΦχΨΩ]/.test(key)) {
+                this.mathField.write(key);
             }
 
             if (!cursor.selection) {

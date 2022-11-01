@@ -45,7 +45,7 @@ var PagerIcon = function (_React$Component) {
       var pStyle = {
         cursor: active ? "default" : "pointer",
         color: active ? "#0B43BF" : "#626975",
-        margin: "0 5px",
+        margin: "0 20px",
         fontFamily: "Lato",
         fontSize: "16px",
         fontWeight: "700"
