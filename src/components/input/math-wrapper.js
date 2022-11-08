@@ -103,7 +103,7 @@ const allSpecialCharacters = [
   "Ε",
   "δ",
   "η",
-  "Θ",
+  "ϴ",
   "ι",
   "k",
   "Λ",
@@ -122,7 +122,7 @@ const allSpecialCharacters = [
   "Ω",
   "α",
   "γ",
-  "δ",
+  "Υ",
   "ε",
   "θ",
   "λ",
@@ -212,6 +212,124 @@ const allSpecialCharacters = [
   "↶",
   "↷",
 ];
+
+const unicodeToLatex = {
+  "β": '\\beta',
+  "Γ": '\\Gamma',
+  "Δ": '\\Delta',
+  "Ε": 'E',
+  "δ": '\\delta',
+  "η": '\\eta',
+  'ϴ': '\\Theta',
+  "ι": '\\iota',
+  "k": '\\kappa',
+  "Λ": '\\Lambda',
+  "μ": '\\mu',
+  "ν": '\\nu',
+  "Ξ": '\\Xi',
+  "Ο": 'O',
+  "Π": '\\Pi',
+  "Ρ": 'P',
+  "Σ": '\\Sigma',
+  "Τ": 'T',
+  "υ": '\\upsilon',
+  "Φ": '\\Phi',
+  "χ": '\\chi',
+  "Ψ": '\\Psi',
+  "Ω": '\\Omega',
+  "α": '\\alpha',
+  "γ": '\\gamma',
+  "Υ": '\\Upsilon',
+  'ε': '\\epsilon',
+  "θ": '\\theta',
+  "λ": '\\lambda',
+  "ξ": '\\xi',
+  "ο": 'o',
+  "π": '\\pi',
+  "ρ": '\\rho',
+  "σ": '\\sigma',
+  "τ": '\\tau',
+  "φ": '\\phi',
+  "ψ": '\\psi',
+  "ω": '\\omega',
+  "∀": '\\forall',
+  "∁": 'C',
+  "∂": '\\partial',
+  "∃": '\\exists',
+  "∄": '\\nexists',
+  "∅": '\\emptyset',
+  "∆": '\\triangle',
+  "∇": '\\nabla',
+  "∈": '\\in',
+  "∉": '\\notin',
+  "∴": '\\therefore',
+  "∋": '\\ni',
+  "∌": '\\not\\ni',
+  "≦": '\\leqq',
+  "≧": '\\gtreqqless',
+  "⋘": '\\lll',
+  "⋙": '\\ggg',
+  "∑": '\\sum',
+  "≠": '\\neq',
+  "∓": '\\mp',
+  "≡": '\\equiv',
+  "∕": '/',
+  "∖": '\\backslash',
+  "∘": '\\circ',
+  "∙": '\\bullet',
+  "∪": '\\bigcup',
+  "⊃": '\\supset',
+  "⊄": '\\not\\subset',
+  "⊅": '\\not\\supset',
+  "∞": '\\infty',
+  "≅": '\\cong',
+  "∠": '\\angle',
+  "⊂": '\\subset',
+  "⋂": '\\cap',
+  "⋃": '\\cup',
+  "∩": '\\bigcap',
+  "∫": '\\int',
+  "|": '|',
+  "←": '\\leftarrow',
+  "↑": '\\uparrow',
+  "→": '\\rightarrow',
+  "↓": '\\downarrow',
+  "↔": '\\leftrightarrow',
+  "↕": '\\updownarrow',
+  "↖": '\\nwarrow',
+  "↗": '\\nearrow',
+  "↘": '\\searrow',
+  "↙": '\\searrow',
+  "↚": '\\nleftarrow',
+  "↛": '\\nrightarrow',
+  "↜": '\\leftwavearrow',
+  "↝": '\\rightwavearrow',
+  "⇦": '\\Leftarrow', 
+  "⇧": '\\Uparrow', 
+  "⇨": '\\Rightarrow', 
+  "⇩": '\\Downarrow',
+  "↢": '\\lefttarrowtail',
+  "↣": '\\rightarrowtail',
+  "⇄": '\\rightleftarrows',
+  "⇅": '\\updownarrows',
+  "⇆": '\\leftrightarrows',
+  "⇇": '\\leftleftarrows',
+  "⇈": '\\upuparrows',
+  "⇉": '\\rightrightarrows',
+  "⇊": '\\downdownarrows',
+  "⇋": '\\leftrightharpoons',
+  "⇿": '\\Leftrightarrow',
+  "↯": '\\lightning',
+  "↰": '\\Lsh',
+  "↱": '\\Rsh',
+  //"↲": '\\hookleftarrow', //nao achei correspondente
+  //"↳": '\\hookrightarrow', //nao achei correspondente
+  //"↴": '\\ ', //nao achei correspondente
+  //"↵": '\\ ', //nao achei correspondente
+  "↶": '\\curvearrowright',
+  "↷": '\\curvearrowleft',
+
+}
 
 // We only consider numerals, variables, and Greek Letters to be proper
 // leaf nodes.
@@ -330,7 +448,7 @@ class MathWrapper {
     } else if (key === Keys.SUB) {
       this._handleSubscript(cursor, key);
     } else if (allSpecialCharacters.includes(key)) {
-      this.mathField.write(key);
+      this.mathField.write(unicodeToLatex[key]);
     }
 
     if (!cursor.selection) {
@@ -716,11 +834,11 @@ class MathWrapper {
     // MathQuill stores commands as separate characters so that
     // users can delete commands one character at a time.  We iterate over
     // the nodes from right to left until we hit a sequence starting with a
-    // '\\', which signifies the start of a command; then we iterate from
-    // left to right until we hit a '\\left(', which signifies the end of a
+    // '\\\', which signifies the start of a command; then we iterate from
+    // left to right until we hit a '\\\left(', which signifies the end of a
     // command.  If we encounter any character that doesn't belong in a
     // command, we return null.  We match a single character at a time.
-    // Ex) ['\\l', 'o', 'g ', '\\left(', ...]
+    // Ex) ['\\\l', 'o', 'g ', '\\\left(', ...]
     const commandCharRegex = /^[a-z]$/;
     const commandStartRegex = /^\\[a-z]$/;
     const commandEndSeq = "\\left(";
@@ -960,7 +1078,7 @@ class MathWrapper {
   }
 
   _handleBackspaceOutsideParens(cursor) {
-    // In this case the node with '\\left(' for its ctrlSeq
+    // In this case the node with '\\\left(' for its ctrlSeq
     // is the parent of the expression contained within the
     // parentheses.
     //
@@ -1046,7 +1164,7 @@ class MathWrapper {
     const isEmpty = this._isInsideEmptyNode(cursor);
 
     // Insert the cursor to the left of the command if there is one
-    // or before the '\\left(` if there isn't
+    // or before the '\\\left(` if there isn't
     const command = this._maybeFindCommandBeforeParens(grandparent);
 
     cursor.insLeftOf((command && command.startNode) || grandparent);
