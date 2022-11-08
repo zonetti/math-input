@@ -295,7 +295,7 @@ class ExpressionKeypad extends React.Component {
           style={roundTopLeft && roundedTopLeft}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['Θ']}
+          keyConfig={KeyConfigs['ϴ']}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton

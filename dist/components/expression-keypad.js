@@ -324,7 +324,7 @@ var ExpressionKeypad = function (_React$Component) {
           style: roundTopLeft && roundedTopLeft
         }),
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs['Θ'],
+          keyConfig: KeyConfigs['ϴ'],
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
