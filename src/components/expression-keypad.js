@@ -290,174 +290,174 @@ class ExpressionKeypad extends React.Component {
     const columns = [
       <View key={0} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['α']}
+          keyConfig={KeyConfigs["α"]}
           borders={BorderStyles.NONE}
           style={roundTopLeft && roundedTopLeft}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['ϴ']}
+          keyConfig={KeyConfigs["ϴ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['Ο']}
+          keyConfig={KeyConfigs["Ο"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['τ']}
+          keyConfig={KeyConfigs["τ"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={1} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['β']}
+          keyConfig={KeyConfigs["β"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['θ']}
+          keyConfig={KeyConfigs["θ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['ο']}
+          keyConfig={KeyConfigs["ο"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['υ']}
+          keyConfig={KeyConfigs["υ"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={2} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['Γ']}
+          keyConfig={KeyConfigs["Γ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['ι']}
+          keyConfig={KeyConfigs["ι"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['Π']}
+          keyConfig={KeyConfigs["Π"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['Φ']}
+          keyConfig={KeyConfigs["Φ"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={3} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['γ']}
+          keyConfig={KeyConfigs["γ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['k']}
+          keyConfig={KeyConfigs["k"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['π']}
+          keyConfig={KeyConfigs["π"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['φ']}
+          keyConfig={KeyConfigs["φ"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={4} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['Δ']}
+          keyConfig={KeyConfigs["Δ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['Λ']}
+          keyConfig={KeyConfigs["Λ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['Ρ']}
+          keyConfig={KeyConfigs["Ρ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['χ']}
+          keyConfig={KeyConfigs["χ"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={5} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['δ']}
+          keyConfig={KeyConfigs["δ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['λ']}
+          keyConfig={KeyConfigs["λ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['ρ']}
+          keyConfig={KeyConfigs["ρ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['Ψ']}
+          keyConfig={KeyConfigs["Ψ"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={6} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['Ε']}
+          keyConfig={KeyConfigs["Ε"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['μ']}
+          keyConfig={KeyConfigs["μ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['Σ']}
+          keyConfig={KeyConfigs["Σ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['ψ']}
+          keyConfig={KeyConfigs["ψ"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={7} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['ε']}
+          keyConfig={KeyConfigs["ε"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['ν']}
+          keyConfig={KeyConfigs["ν"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['σ']}
+          keyConfig={KeyConfigs["σ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['Ω']}
+          keyConfig={KeyConfigs["Ω"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={8} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['ζ']}
+          keyConfig={KeyConfigs["ζ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['Ξ']}
+          keyConfig={KeyConfigs["Ξ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['Τ']}
+          keyConfig={KeyConfigs["Τ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['ω']}
+          keyConfig={KeyConfigs["ω"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={9} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['η']}
+          keyConfig={KeyConfigs["η"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['ξ']}
+          keyConfig={KeyConfigs["ξ"]}
           borders={BorderStyles.BOTTOM}
         />
         <TouchableKeypadButton
@@ -482,16 +482,21 @@ class ExpressionKeypad extends React.Component {
   };
 
   _renderThirdPage = () => {
-    const middlePageStyle = [row, fullWidth, styles.pageBackground];
+    const middlePageStyle = [
+      row,
+      fullWidth,
+      styles.pageBackground,
+      styles.fullHeight,
+    ];
 
     const columns = [
       <View key={0} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['←']}
+          keyConfig={KeyConfigs["←"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['↑']}
+          keyConfig={KeyConfigs["↑"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
@@ -505,11 +510,11 @@ class ExpressionKeypad extends React.Component {
       </View>,
       <View key={1} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['→']}
+          keyConfig={KeyConfigs["→"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['↓']}
+          keyConfig={KeyConfigs["↓"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
@@ -523,11 +528,11 @@ class ExpressionKeypad extends React.Component {
       </View>,
       <View key={2} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['↖']}
+          keyConfig={KeyConfigs["↖"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['↗']}
+          keyConfig={KeyConfigs["↗"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
@@ -541,11 +546,11 @@ class ExpressionKeypad extends React.Component {
       </View>,
       <View key={3} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['↘']}
+          keyConfig={KeyConfigs["↘"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['↙']}
+          keyConfig={KeyConfigs["↙"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
@@ -559,11 +564,11 @@ class ExpressionKeypad extends React.Component {
       </View>,
       <View key={4} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['↰']}
+          keyConfig={KeyConfigs["↰"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['↱']}
+          keyConfig={KeyConfigs["↱"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
@@ -577,11 +582,11 @@ class ExpressionKeypad extends React.Component {
       </View>,
       <View key={5} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['⇦']}
+          keyConfig={KeyConfigs["⇦"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['↔']}
+          keyConfig={KeyConfigs["↔"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
@@ -595,11 +600,11 @@ class ExpressionKeypad extends React.Component {
       </View>,
       <View key={6} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['⇨']}
+          keyConfig={KeyConfigs["⇨"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['↕']}
+          keyConfig={KeyConfigs["↕"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
@@ -613,7 +618,7 @@ class ExpressionKeypad extends React.Component {
       </View>,
       <View key={7} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['⇧']}
+          keyConfig={KeyConfigs["⇧"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
@@ -631,7 +636,7 @@ class ExpressionKeypad extends React.Component {
       </View>,
       <View key={8} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['⇩']}
+          keyConfig={KeyConfigs["⇩"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
@@ -649,11 +654,7 @@ class ExpressionKeypad extends React.Component {
       </View>,
       <View key={9} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['⇿']}
-          borders={BorderStyles.NONE}
-        />
-        <TouchableKeypadButton
-          keyConfig={KeyConfigs.NOOP}
+          keyConfig={KeyConfigs["⇿"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
@@ -694,174 +695,174 @@ class ExpressionKeypad extends React.Component {
     const columns = [
       <View key={0} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∀']}
+          keyConfig={KeyConfigs["∀"]}
           borders={BorderStyles.NONE}
           style={roundTopLeft && roundedTopLeft}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['Δ']}
+          keyConfig={KeyConfigs["Δ"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∞']}
+          keyConfig={KeyConfigs["∞"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∴']}
+          keyConfig={KeyConfigs["∴"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={1} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∁']}
+          keyConfig={KeyConfigs["∁"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∇']}
+          keyConfig={KeyConfigs["∇"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∂']}
+          keyConfig={KeyConfigs["∂"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∵']}
+          keyConfig={KeyConfigs["∵"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={2} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∪']}
+          keyConfig={KeyConfigs["∪"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['⋃']}
+          keyConfig={KeyConfigs["⋃"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['⊃']}
+          keyConfig={KeyConfigs["⊃"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['⊂']}
+          keyConfig={KeyConfigs["⊂"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={3} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∩']}
+          keyConfig={KeyConfigs["∩"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['⋂']}
+          keyConfig={KeyConfigs["⋂"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['⊅']}
+          keyConfig={KeyConfigs["⊅"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['⊄']}
+          keyConfig={KeyConfigs["⊄"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={4} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∈']}
+          keyConfig={KeyConfigs["∈"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∋']}
+          keyConfig={KeyConfigs["∋"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∓']}
+          keyConfig={KeyConfigs["∓"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['±']}
+          keyConfig={KeyConfigs["±"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={5} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∉']}
+          keyConfig={KeyConfigs["∉"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∌']}
+          keyConfig={KeyConfigs["∌"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∫']}
+          keyConfig={KeyConfigs["∫"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∑']}
+          keyConfig={KeyConfigs["∑"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={6} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∅']}
+          keyConfig={KeyConfigs["∅"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['⊕']}
+          keyConfig={KeyConfigs["⊕"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['⊙']}
+          keyConfig={KeyConfigs["⊙"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['⊗']}
+          keyConfig={KeyConfigs["⊗"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={7} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∕']}
+          keyConfig={KeyConfigs["∕"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∃']}
+          keyConfig={KeyConfigs["∃"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['≠']}
+          keyConfig={KeyConfigs["≠"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['≡']}
+          keyConfig={KeyConfigs["≡"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={8} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∖']}
+          keyConfig={KeyConfigs["∖"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∘']}
+          keyConfig={KeyConfigs["∘"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∠']}
+          keyConfig={KeyConfigs["∠"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['≅']}
+          keyConfig={KeyConfigs["≅"]}
           borders={BorderStyles.NONE}
         />
       </View>,
       <View key={9} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['|']}
+          keyConfig={KeyConfigs["|"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs['∙']}
+          keyConfig={KeyConfigs["∙"]}
           borders={BorderStyles.BOTTOM}
         />
         <TouchableKeypadButton
@@ -911,6 +912,9 @@ const styles = StyleSheet.create({
   // TODO(charlie): Apply the proper background between the 'command' keys.
   pageBackground: {
     backgroundColor: valueGrey,
+  },
+  fullHeight: {
+    height: "100%",
   },
 });
 
