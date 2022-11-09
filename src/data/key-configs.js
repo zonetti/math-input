@@ -444,6 +444,11 @@ const SPECIAL_CHARACTERS = [
   "↵",
   "↶",
   "↷",
+  "⊕",
+  "⊙",
+  "⊗",
+  "∵",
+  "±",
 ];
 for (const sc of SPECIAL_CHARACTERS) {
   KeyConfigs[sc] = {

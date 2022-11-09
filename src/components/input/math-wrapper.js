@@ -212,6 +212,11 @@ const allSpecialCharacters = [
   "↵",
   "↶",
   "↷",
+  "⊕",
+  "⊙",
+  "⊗",
+  "∵",
+  "±",
 ];
 
 const unicodeToLatex = {
@@ -296,7 +301,7 @@ const unicodeToLatex = {
   "↑": '\\uparrow',
   "→": '\\rightarrow',
   "↓": '\\downarrow',
-  "↔": '\\leftrightarrow',
+  "↔": '\\harr',
   "↕": '\\updownarrow',
   "↖": '\\nwarrow',
   "↗": '\\nearrow',
@@ -330,7 +335,11 @@ const unicodeToLatex = {
   //"↵": '\\ ', //nao achei correspondente
   "↶": '\\curvearrowright',
   "↷": '\\curvearrowleft',
-
+  "⊕": '\\oplus',
+  "⊙": '\\odot',
+  "⊗": '\\otimes',
+  "∵": '\\because',
+  "±": '\\pm',
 }
 
 // We only consider numerals, variables, and Greek Letters to be proper
