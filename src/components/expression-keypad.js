@@ -604,7 +604,7 @@ class ExpressionKeypad extends React.Component {
         borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs.NOOP}
+          keyConfig={KeyConfigs["△"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton

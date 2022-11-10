@@ -99,7 +99,7 @@ var unicodeToLatex = {
   "∃": '\\exists',
   "∄": '\\nexists',
   "∅": '\\emptyset',
-  "∆": '\\triangle',
+  "△": '\\triangle',
   "∇": '\\nabla',
   "∈": '\\in',
   "∉": '\\notin',

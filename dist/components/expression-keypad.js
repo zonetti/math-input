@@ -643,7 +643,7 @@ var ExpressionKeypad = function (_React$Component) {
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs.NOOP,
+          keyConfig: KeyConfigs["△"],
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
