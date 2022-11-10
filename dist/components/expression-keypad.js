@@ -649,6 +649,10 @@ var ExpressionKeypad = function (_React$Component) {
         React.createElement(TouchableKeypadButton, {
           keyConfig: KeyConfigs.NOOP,
           borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.NOOP,
+          borders: BorderStyles.NONE
         })
       ), React.createElement(
         View,

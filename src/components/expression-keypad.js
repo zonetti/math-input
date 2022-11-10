@@ -611,6 +611,10 @@ class ExpressionKeypad extends React.Component {
           keyConfig={KeyConfigs.NOOP}
           borders={BorderStyles.NONE}
         />
+        <TouchableKeypadButton
+          keyConfig={KeyConfigs.NOOP}
+          borders={BorderStyles.NONE}
+        />
       </View>,
       <View key={7} style={[column, oneColumn]}>
         <TouchableKeypadButton

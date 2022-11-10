@@ -248,6 +248,15 @@ const KeyConfigs = {
     type: KeyTypes.OPERATOR,
     ariaLabel: i18n._("Subscrito"),
   },
+
+  [Keys.MAPSTO]: {
+    type: KeyTypes.VALUE,
+    ariaLabel: "↦",
+    icon: {
+      type: IconTypes.TEXT,
+      data: "↦",
+    },
+  },
 };
 
 // Add in any multi-function buttons. By default, these keys will mix in any
