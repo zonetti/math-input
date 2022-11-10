@@ -601,11 +601,11 @@ var ExpressionKeypad = function (_React$Component) {
         View,
         { key: 4, style: [column, oneColumn] },
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs["↰"],
+          keyConfig: KeyConfigs["↦"],
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs["↱"],
+          keyConfig: KeyConfigs["⟼"],
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {

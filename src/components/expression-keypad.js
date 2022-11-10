@@ -564,11 +564,11 @@ class ExpressionKeypad extends React.Component {
       </View>,
       <View key={4} style={[column, oneColumn]}>
         <TouchableKeypadButton
-          keyConfig={KeyConfigs["↰"]}
+          keyConfig={KeyConfigs["↦"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs["↱"]}
+          keyConfig={KeyConfigs["⟼"]}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
