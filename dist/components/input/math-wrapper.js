@@ -267,7 +267,7 @@ var MathWrapper = function () {
         this._handleSubscript(cursor, key);
       } else if (key === Keys.MAPSTO) {
         this.mathField.write('\\mapsto');
-      } else if (allSpecialCharacters.includes(key)) {
+      } else if (Object.keys(unicodeToLatex).includes(key)) {
         this.mathField.write(unicodeToLatex[key]);
       }
 
