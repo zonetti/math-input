@@ -267,6 +267,14 @@ var MathWrapper = function () {
         this.mathField.write(key[4]);
       } else if (key === Keys.SUB) {
         this._handleSubscript(cursor, key);
+      } else if (key === Keys.MAPSTO) {
+        this.mathField.write('\\mapsto');
+      } else if (key === Keys.LONGMAPSTO) {
+        this.mathField.write('\\longmapsto');
+      } else if (key === Keys.LSH) {
+        this.mathField.write('\\Lsh');
+      } else if (key === Keys.RSH) {
+        this.mathField.write('\\Rsh');
       } else if (allSpecialCharacters.includes(key)) {
         this.mathField.write(unicodeToLatex[key]);
       }

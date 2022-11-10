@@ -254,7 +254,7 @@ const KeyConfigs = {
     ariaLabel: "↦",
     icon: {
       type: IconTypes.TEXT,
-      data: "\\mapsto",
+      data: "↦",
     },
   },
   [Keys.LONGMAPSTO]: {
@@ -262,7 +262,7 @@ const KeyConfigs = {
     ariaLabel: "⟼",
     icon: {
       type: IconTypes.TEXT,
-      data: "\\longmapsto",
+      data: "⟼",
     },
   },
   [Keys.LSH]: {
@@ -270,7 +270,7 @@ const KeyConfigs = {
     ariaLabel: "↰",
     icon: {
       type: IconTypes.TEXT,
-      data: "\\Lsh",
+      data: "↰",
     },
   },
   [Keys.RSH]: {
@@ -278,7 +278,7 @@ const KeyConfigs = {
     ariaLabel: "↱",
     icon: {
       type: IconTypes.TEXT,
-      data: "\\Rsh",
+      data: "↱",
     },
   },
 };
@@ -449,9 +449,9 @@ const SPECIAL_CHARACTERS = [
   "↗",
   "↘",
   "↙",
-  "⇦", 
-  "⇧", 
-  "⇨", 
+  "⇦",
+  "⇧",
+  "⇨",
   "⇩",
   "⇿",
   "⊕",

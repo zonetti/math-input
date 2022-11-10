@@ -628,7 +628,7 @@ var ExpressionKeypad = function (_React$Component) {
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs.MAPSTO,
+          keyConfig: KeyConfigs.NOOP,
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
@@ -647,7 +647,7 @@ var ExpressionKeypad = function (_React$Component) {
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs.LONGMAPSTO,
+          keyConfig: KeyConfigs.NOOP,
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
@@ -662,7 +662,7 @@ var ExpressionKeypad = function (_React$Component) {
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs.NOOP,
+          keyConfig: KeyConfigs.MAPSTO,
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
@@ -681,7 +681,7 @@ var ExpressionKeypad = function (_React$Component) {
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs.NOOP,
+          keyConfig: KeyConfigs.LONGMAPSTO,
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {

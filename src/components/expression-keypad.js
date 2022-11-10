@@ -590,7 +590,7 @@ class ExpressionKeypad extends React.Component {
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs.MAPSTO}
+          keyConfig={KeyConfigs.NOOP}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
@@ -608,7 +608,7 @@ class ExpressionKeypad extends React.Component {
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs.LONGMAPSTO}
+          keyConfig={KeyConfigs.NOOP}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
@@ -622,7 +622,7 @@ class ExpressionKeypad extends React.Component {
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs.NOOP}
+          keyConfig={KeyConfigs.MAPSTO}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
@@ -640,7 +640,7 @@ class ExpressionKeypad extends React.Component {
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton
-          keyConfig={KeyConfigs.NOOP}
+          keyConfig={KeyConfigs.LONGMAPSTO}
           borders={BorderStyles.NONE}
         />
         <TouchableKeypadButton

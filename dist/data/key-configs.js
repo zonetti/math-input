@@ -208,28 +208,28 @@ var KeyConfigs = (_KeyConfigs = {}, _defineProperty(_KeyConfigs, Keys.PLUS, {
   ariaLabel: "↦",
   icon: {
     type: IconTypes.TEXT,
-    data: "\\mapsto"
+    data: "↦"
   }
 }), _defineProperty(_KeyConfigs, Keys.LONGMAPSTO, {
   type: KeyTypes.VALUE,
   ariaLabel: "⟼",
   icon: {
     type: IconTypes.TEXT,
-    data: "\\longmapsto"
+    data: "⟼"
   }
 }), _defineProperty(_KeyConfigs, Keys.LSH, {
   type: KeyTypes.VALUE,
   ariaLabel: "↰",
   icon: {
     type: IconTypes.TEXT,
-    data: "\\Lsh"
+    data: "↰"
   }
 }), _defineProperty(_KeyConfigs, Keys.RSH, {
   type: KeyTypes.VALUE,
   ariaLabel: "↱",
   icon: {
     type: IconTypes.TEXT,
-    data: "\\Rsh"
+    data: "↱"
   }
 }), _KeyConfigs);
 
