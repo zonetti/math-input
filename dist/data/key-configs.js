@@ -203,34 +203,6 @@ var KeyConfigs = (_KeyConfigs = {}, _defineProperty(_KeyConfigs, Keys.PLUS, {
 }), _defineProperty(_KeyConfigs, Keys.SUB, {
   type: KeyTypes.OPERATOR,
   ariaLabel: i18n._("Subscrito")
-}), _defineProperty(_KeyConfigs, Keys.MAPSTO, {
-  type: KeyTypes.VALUE,
-  ariaLabel: "↦",
-  icon: {
-    type: IconTypes.TEXT,
-    data: "↦"
-  }
-}), _defineProperty(_KeyConfigs, Keys.LONGMAPSTO, {
-  type: KeyTypes.VALUE,
-  ariaLabel: "⟼",
-  icon: {
-    type: IconTypes.TEXT,
-    data: "⟼"
-  }
-}), _defineProperty(_KeyConfigs, Keys.LSH, {
-  type: KeyTypes.VALUE,
-  ariaLabel: "↰",
-  icon: {
-    type: IconTypes.TEXT,
-    data: "↰"
-  }
-}), _defineProperty(_KeyConfigs, Keys.RSH, {
-  type: KeyTypes.VALUE,
-  ariaLabel: "↱",
-  icon: {
-    type: IconTypes.TEXT,
-    data: "↱"
-  }
 }), _KeyConfigs);
 
 // Add in any multi-function buttons. By default, these keys will mix in any

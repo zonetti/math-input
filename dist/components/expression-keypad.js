@@ -601,25 +601,6 @@ var ExpressionKeypad = function (_React$Component) {
         View,
         { key: 4, style: [column, oneColumn] },
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs.LSH,
-          borders: BorderStyles.NONE
-        }),
-        React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs.RSH,
-          borders: BorderStyles.NONE
-        }),
-        React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs.NOOP,
-          borders: BorderStyles.NONE
-        }),
-        React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs.NOOP,
-          borders: BorderStyles.NONE
-        })
-      ), React.createElement(
-        View,
-        { key: 5, style: [column, oneColumn] },
-        React.createElement(TouchableKeypadButton, {
           keyConfig: KeyConfigs["⇦"],
           borders: BorderStyles.NONE
         }),
@@ -637,7 +618,7 @@ var ExpressionKeypad = function (_React$Component) {
         })
       ), React.createElement(
         View,
-        { key: 6, style: [column, oneColumn] },
+        { key: 5, style: [column, oneColumn] },
         React.createElement(TouchableKeypadButton, {
           keyConfig: KeyConfigs["⇨"],
           borders: BorderStyles.NONE
@@ -656,13 +637,28 @@ var ExpressionKeypad = function (_React$Component) {
         })
       ), React.createElement(
         View,
-        { key: 7, style: [column, oneColumn] },
+        { key: 6, style: [column, oneColumn] },
         React.createElement(TouchableKeypadButton, {
           keyConfig: KeyConfigs["⇧"],
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs.MAPSTO,
+          keyConfig: KeyConfigs.NOOP,
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.NOOP,
+          borders: BorderStyles.NONE
+        })
+      ), React.createElement(
+        View,
+        { key: 7, style: [column, oneColumn] },
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs["⇩"],
+          borders: BorderStyles.NONE
+        }),
+        React.createElement(TouchableKeypadButton, {
+          keyConfig: KeyConfigs.NOOP,
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
@@ -677,11 +673,7 @@ var ExpressionKeypad = function (_React$Component) {
         View,
         { key: 8, style: [column, oneColumn] },
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs["⇩"],
-          borders: BorderStyles.NONE
-        }),
-        React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs.LONGMAPSTO,
+          keyConfig: KeyConfigs["⇿"],
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
@@ -696,7 +688,7 @@ var ExpressionKeypad = function (_React$Component) {
         View,
         { key: 9, style: [column, oneColumn] },
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs["⇿"],
+          keyConfig: KeyConfigs.MAPSTO,
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {

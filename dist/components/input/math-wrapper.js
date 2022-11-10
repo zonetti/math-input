@@ -53,8 +53,6 @@ var Numerals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var GreekLetters = ["\\theta", "\\pi"];
 var Letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-var allSpecialCharacters = ["β", "Γ", "Δ", "Ε", "δ", "η", "ϴ", "ι", "k", "Λ", "μ", "ν", "Ξ", "Ο", "Π", "Ρ", "Σ", "Τ", "υ", "Φ", "χ", "Ψ", "Ω", "α", "γ", "Υ", "ζ", "ε", "θ", "λ", "ξ", "ο", "π", "ρ", "σ", "τ", "φ", "ψ", "ω", "∀", "∁", "∂", "∃", "∄", "∅", "∆", "∇", "∈", "∉", "∴", "∋", "∌", "≦", "≧", "⋘", "⋙", "∑", "≠", "∓", "≡", "∕", "∖", "∘", "∙", "∪", "⊃", "⊄", "⊅", "∞", "≅", "∠", "⊂", "⋂", "⋃", "∩", "∫", "|", "←", "↑", "→", "↓", "↔", "↕", "↖", "↗", "↘", "↙", "⇦", "⇧", "⇨", "⇩", "⇿", "⊕", "⊙", "⊗", "∵", "±"];
-
 var unicodeToLatex = {
   "β": '\\beta',
   "Γ": '\\Gamma',
@@ -142,7 +140,7 @@ var unicodeToLatex = {
   "↖": '\\nwarrow',
   "↗": '\\nearrow',
   "↘": '\\searrow',
-  "↙": '\\searrow',
+  "↙": '\\swarrow',
   "⇦": '\\Leftarrow',
   "⇧": "\\Uparrow",
   "⇨": '\\Rightarrow',
@@ -269,12 +267,6 @@ var MathWrapper = function () {
         this._handleSubscript(cursor, key);
       } else if (key === Keys.MAPSTO) {
         this.mathField.write('\\mapsto');
-      } else if (key === Keys.LONGMAPSTO) {
-        this.mathField.write('\\longmapsto');
-      } else if (key === Keys.LSH) {
-        this.mathField.write('\\Lsh');
-      } else if (key === Keys.RSH) {
-        this.mathField.write('\\Rsh');
       } else if (allSpecialCharacters.includes(key)) {
         this.mathField.write(unicodeToLatex[key]);
       }

@@ -70,9 +70,6 @@ const Keys = {
     SUB: 'SUB',
 
     MAPSTO: 'MAPSTO',
-    LONGMAPSTO: 'LONGMAPSTO',
-    LSH: 'LSH',
-    RSH: 'RSH',
 };
 
 module.exports = Keys;
