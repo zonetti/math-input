@@ -69,7 +69,12 @@ var Keys = {
     MANY: 'MANY',
 
     SUPSUB: 'SUPSUB',
-    SUB: 'SUB'
+    SUB: 'SUB',
+
+    MAPSTO: 'MAPSTO',
+    LONGMAPSTO: 'LONGMAPSTO',
+    LSH: 'LSH',
+    RSH: 'RSH'
 };
 
 module.exports = Keys;
