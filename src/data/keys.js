@@ -68,6 +68,8 @@ const Keys = {
 
     SUPSUB: 'SUPSUB',
     SUB: 'SUB',
+
+    MAPSTO: 'MAPSTO',
 };
 
 module.exports = Keys;
