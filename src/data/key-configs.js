@@ -248,6 +248,39 @@ const KeyConfigs = {
     type: KeyTypes.OPERATOR,
     ariaLabel: i18n._("Subscrito"),
   },
+
+  [Keys.MAPSTO]: {
+    type: KeyTypes.VALUE,
+    ariaLabel: "↦",
+    icon: {
+      type: IconTypes.TEXT,
+      data: "\\mapsto",
+    },
+  },
+  [Keys.LONGMAPSTO]: {
+    type: KeyTypes.VALUE,
+    ariaLabel: "⟼",
+    icon: {
+      type: IconTypes.TEXT,
+      data: "\\longmapsto",
+    },
+  },
+  [Keys.LSH]: {
+    type: KeyTypes.VALUE,
+    ariaLabel: "↰",
+    icon: {
+      type: IconTypes.TEXT,
+      data: "\\Lsh",
+    },
+  },
+  [Keys.RSH]: {
+    type: KeyTypes.VALUE,
+    ariaLabel: "↱",
+    icon: {
+      type: IconTypes.TEXT,
+      data: "\\Rsh",
+    },
+  },
 };
 
 // Add in any multi-function buttons. By default, these keys will mix in any
@@ -421,8 +454,6 @@ const SPECIAL_CHARACTERS = [
   "⇨", 
   "⇩",
   "⇿",
-  "⟼",
-  "↦",
   "⊕",
   "⊙",
   "⊗",

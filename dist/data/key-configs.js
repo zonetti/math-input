@@ -203,6 +203,34 @@ var KeyConfigs = (_KeyConfigs = {}, _defineProperty(_KeyConfigs, Keys.PLUS, {
 }), _defineProperty(_KeyConfigs, Keys.SUB, {
   type: KeyTypes.OPERATOR,
   ariaLabel: i18n._("Subscrito")
+}), _defineProperty(_KeyConfigs, Keys.MAPSTO, {
+  type: KeyTypes.VALUE,
+  ariaLabel: "↦",
+  icon: {
+    type: IconTypes.TEXT,
+    data: "\\mapsto"
+  }
+}), _defineProperty(_KeyConfigs, Keys.LONGMAPSTO, {
+  type: KeyTypes.VALUE,
+  ariaLabel: "⟼",
+  icon: {
+    type: IconTypes.TEXT,
+    data: "\\longmapsto"
+  }
+}), _defineProperty(_KeyConfigs, Keys.LSH, {
+  type: KeyTypes.VALUE,
+  ariaLabel: "↰",
+  icon: {
+    type: IconTypes.TEXT,
+    data: "\\Lsh"
+  }
+}), _defineProperty(_KeyConfigs, Keys.RSH, {
+  type: KeyTypes.VALUE,
+  ariaLabel: "↱",
+  icon: {
+    type: IconTypes.TEXT,
+    data: "\\Rsh"
+  }
 }), _KeyConfigs);
 
 // Add in any multi-function buttons. By default, these keys will mix in any
@@ -300,7 +328,7 @@ try {
   }
 }
 
-var SPECIAL_CHARACTERS = ["β", "Γ", "Δ", "Ε", "δ", "η", "ϴ", "ι", "k", "Λ", "μ", "ν", "Ξ", "Ο", "Π", "Ρ", "Σ", "Τ", "υ", "Φ", "χ", "Ψ", "Ω", "α", "γ", "δ", "ε", "ζ", "θ", "λ", "ξ", "ο", "π", "ρ", "σ", "τ", "φ", "ψ", "ω", "ζ", "∀", "∁", "∂", "∃", "∄", "∅", "∆", "∇", "∈", "∉", "∴", "∋", "∌", "≦", "≧", "⋘", "⋙", "∑", "≠", "∓", "≡", "∕", "∖", "∘", "∙", "∪", "⊃", "⊄", "⊅", "∞", "≅", "∠", "⊂", "⋂", "⋃", "∩", "∫", "|", "←", "↑", "→", "↓", "↔", "↕", "↖", "↗", "↘", "↙", "⇦", "⇧", "⇨", "⇩", "⇿", "⟼", "↦", "⊕", "⊙", "⊗", "∵", "±"];
+var SPECIAL_CHARACTERS = ["β", "Γ", "Δ", "Ε", "δ", "η", "ϴ", "ι", "k", "Λ", "μ", "ν", "Ξ", "Ο", "Π", "Ρ", "Σ", "Τ", "υ", "Φ", "χ", "Ψ", "Ω", "α", "γ", "δ", "ε", "ζ", "θ", "λ", "ξ", "ο", "π", "ρ", "σ", "τ", "φ", "ψ", "ω", "ζ", "∀", "∁", "∂", "∃", "∄", "∅", "∆", "∇", "∈", "∉", "∴", "∋", "∌", "≦", "≧", "⋘", "⋙", "∑", "≠", "∓", "≡", "∕", "∖", "∘", "∙", "∪", "⊃", "⊄", "⊅", "∞", "≅", "∠", "⊂", "⋂", "⋃", "∩", "∫", "|", "←", "↑", "→", "↓", "↔", "↕", "↖", "↗", "↘", "↙", "⇦", "⇧", "⇨", "⇩", "⇿", "⊕", "⊙", "⊗", "∵", "±"];
 var _iteratorNormalCompletion3 = true;
 var _didIteratorError3 = false;
 var _iteratorError3 = undefined;

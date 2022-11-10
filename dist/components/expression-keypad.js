@@ -601,11 +601,11 @@ var ExpressionKeypad = function (_React$Component) {
         View,
         { key: 4, style: [column, oneColumn] },
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs["↦"],
+          keyConfig: KeyConfigs.LSH,
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs["⟼"],
+          keyConfig: KeyConfigs.RSH,
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
@@ -628,7 +628,7 @@ var ExpressionKeypad = function (_React$Component) {
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs.NOOP,
+          keyConfig: KeyConfigs.MAPSTO,
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
@@ -647,7 +647,7 @@ var ExpressionKeypad = function (_React$Component) {
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
-          keyConfig: KeyConfigs.NOOP,
+          keyConfig: KeyConfigs.LONGMAPSTO,
           borders: BorderStyles.NONE
         }),
         React.createElement(TouchableKeypadButton, {
